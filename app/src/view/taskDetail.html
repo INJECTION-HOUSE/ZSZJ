@@ -1,0 +1,38 @@
+<div class="task_detail">
+    <div class="header">
+        <div class="header_task">
+            <img src="./images/icons/task_detail_wyzb.png" /><span>招标任务</span>
+        </div>
+        <div class="header_bid {{page.btnActive ? 'active' : ''}}" ng-click="bidTask()">{{page.btnText}}</div>
+        <div class="task_fee"><span>￥</span>{{getTaskPrice(task)}}</div>
+    </div>
+    <div class="content">
+        <div class="task_title">{{task.taskTitle}}</div>
+        <div class="task_base">
+            <label>已收到<span>{{task.members.length}}</span>个投标</label>
+            <label>投标截止还有<span>{{getDeadlineText(task.deadline)}}</span></label>
+            <label>发布时间: {{formatDate(task.createTime)}}</label>
+        </div>
+        <ul class="task_status">
+            <li class="{{task.status == 0 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">竞标</span></li>
+            <li class="{{task.status == 1 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">选标</span></li>
+            <li class="{{task.status == 2 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">开始工作</span></li>
+            <li class="{{task.status == 3 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">验收</span></li>
+            <li class="{{task.status == 4 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">付款</span></li>
+            <li class="{{task.status == 5 ? 'active' : ''}}"><span class="circle"></span><span class="circle_info">结束</span></li>
+        </ul>
+        <div class="clear"></div>
+        <div class="dash-line"></div>
+        <div class="task_desc">
+            <label>任务详情</label>
+            <div class="desc_info">
+                <span>{{task.taskDesc}}</span>
+                <ul>
+                    <li ng-repeat="image in task_images"><img src="{{image}}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer" ng-click="checkJoiner()">查看已投标会员</div>
+</div>
+

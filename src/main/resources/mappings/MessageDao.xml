@@ -1,0 +1,200 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.santi.core.dao.MessageDao">
+
+	<resultMap id="notice" type="com.santi.core.entity.NoticeEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="notice_title" property="title" jdbcType="VARCHAR" />
+		<result column="notice_content" property="content" jdbcType="VARCHAR" />
+		<result column="notice_type" property="type" jdbcType="INTEGER" />
+		<result column="generate_time" property="generateTime" jdbcType="VARCHAR" />
+		<result column="notice_uuid" property="uuid" jdbcType="VARCHAR" />
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="message" type="com.santi.core.entity.MessageEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="msg_type" property="type" jdbcType="INTEGER" />
+		<result column="msg_title" property="title" jdbcType="VARCHAR" />
+		<result column="msg_content" property="content" jdbcType="VARCHAR" />
+		<result column="msg_receiver" property="receiver" jdbcType="VARCHAR" />
+		<result column="msg_sender" property="sender" jdbcType="VARCHAR" />
+		<result column="is_read" property="read" jdbcType="BIT" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="send_date" property="sendDate" jdbcType="VARCHAR" />
+
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="noticeOfMember" type="com.santi.core.entity.NoticeMemberEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="cell_phone" property="cellPhone" jdbcType="VARCHAR" />
+		<result column="notice_id" property="noticeId" jdbcType="INTEGER" />
+		<result column="is_read" property="read" jdbcType="BIT" />
+
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="listNotices" resultMap="notice">
+		select * from notices_tbl n
+		order by n.id desc
+	</select>
+
+	<delete id="deleteNotice" parameterType="long">
+		delete from notices_tbl
+		where id = #{id}
+	</delete>
+
+	<delete id="deleteNoticeMembersByNoticesId" parameterType="long">
+		delete from notices_member_tbl where notice_id = #{id}
+	</delete>
+
+	<select id="getNoticeByid" resultMap="notice" parameterType="long">
+		select * from notices_tbl where id = #{id}
+	</select>
+	
+	<select id="getNoticeByuuid" resultMap="notice" parameterType="string">
+		select * from notices_tbl where notice_uuid = #{uuid}
+	</select>
+	
+	<select id="getNumberOfNotices" resultType="int" parameterType="string">
+		select count(*) from notices_member_tbl where cell_phone = #{cellPhone}
+	</select>
+	
+	<select id="getMemberNotices" resultMap="noticeOfMember" parameterType="string">
+		select * from notices_member_tbl where cell_phone = #{cellPhone}
+	</select>
+
+	<select id="getUnreadNotices" resultMap="notice" parameterType="string">
+		select * from notices_tbl n
+		INNER JOIN notices_member_tbl m ON n.id =
+		m.notice_id
+		<where>
+			1 = 1
+			and m.cell_phone = #{cellphone}
+		</where>
+		order by n.generate_time desc
+	</select>
+
+	<select id="getInboxMessages" resultMap="message" parameterType="string">
+		select * from message_tbl where msg_receiver = #{nickname}
+	</select>
+	
+	<select id="getNumberOfInBoxMessage" resultType="int" parameterType="string">
+		select count(*) from message_tbl where msg_receiver = #{nickname}
+	</select>
+
+	<select id="getOutboxMessages" resultMap="message" parameterType="string">
+		select * from message_tbl where msg_sender = #{nickname}
+	</select>
+	
+	<select id="getMessageById" resultMap="message" parameterType="long">
+		select * from message_tbl where id = #{id}
+	</select>
+	
+	<update id="updateReadStatus" parameterType="com.santi.core.entity.MessageEntity">
+		UPDATE message_tbl SET
+		is_read = #{read}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteMessages" parameterType="long">
+		delete from message_tbl where id = #{id}
+	</delete>
+	
+	<insert id="createMessage" parameterType="com.santi.core.entity.MessageEntity">
+		insert into message_tbl
+		(msg_type, msg_title, msg_content, msg_receiver, msg_sender, is_read, status, send_date,
+		created_time, updated_time, created_by, updated_by
+		)
+		values
+		(
+		#{type},
+		#{title},
+		#{content},
+		#{receiver},
+		#{sender},
+		#{read},
+		#{status},
+		#{sendDate},
+		#{createTime},
+		#{updateTime},
+		#{createBy},
+		#{updateBy}
+		)
+	</insert>
+
+	<update id="updateNotices" parameterType="com.santi.core.entity.NoticeEntity">
+		UPDATE notices_tbl SET
+		<if test="updateTime != null">
+			updated_time = #{updateTime},
+		</if>
+		<if test="updateBy != null">
+			updated_by = #{updateBy},
+		</if>
+		notice_title = #{title},
+		notice_content = #{content},
+		notice_type = #{type}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateNoticeMember" parameterType="com.santi.core.entity.NoticeMemberEntity">
+		UPDATE notices_member_tbl SET
+		<if test="updateTime != null">
+			updated_time = #{updateTime},
+		</if>
+		<if test="updateBy != null">
+			updated_by = #{updateBy},
+		</if>
+		is_read = #{read}
+		WHERE id = #{id}
+	</update>
+
+
+
+	<insert id="createNotice" parameterType="com.santi.core.entity.NoticeEntity">
+		insert into notices_tbl
+		(notice_title, notice_content, notice_type, generate_time,notice_uuid,
+		created_time, updated_time, created_by, updated_by
+		)
+		values
+		(
+		#{title},
+		#{content},
+		#{type},
+		#{generateTime},
+		#{uuid},
+		#{createTime},
+		#{updateTime},
+		#{createBy},
+		#{updateBy}
+		)
+	</insert>
+	
+	
+	<insert id="createNoticeMember" parameterType="com.santi.core.entity.NoticeMemberEntity">
+		insert into notices_member_tbl
+		(cell_phone, notice_id, is_read,
+		created_time, updated_time, created_by, updated_by
+		)
+		values
+		(
+		#{cellPhone},
+		#{noticeId},
+		#{read},
+		#{createTime},
+		#{updateTime},
+		#{createBy},
+		#{updateBy}
+		)
+	</insert>
+
+</mapper>

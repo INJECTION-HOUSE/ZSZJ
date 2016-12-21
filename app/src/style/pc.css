@@ -1,0 +1,174 @@
+/*中标订单*/
+.bid_order_card {
+    margin-top: 0.1rem;
+    background-color: #ffffff;
+    padding-left: 0.16rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    padding-right: 0.16rem;
+    /*min-height: 1.2rem;*/
+}
+
+.bid_order_card .bid_order_card_left {
+    margin-right: 1rem;
+    border-right: 0.01rem solid #ccc;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_top {
+    height: 0.15rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_top .boc_left_money{
+    float: left;
+    color: #de4b0a;
+    font-size: 0.14rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_top .boc_left_title {
+    float: left;
+    color: #72c530;
+    font-size: 0.14rem;
+    margin-left: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom {
+    margin-top: 0.15rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_number {
+    height: 0.14rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_number .boc_left_number_text{
+    float: left;
+    color: #666666;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_number .boc_left_number_value {
+    float: left;
+    color: #999999;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_phone {
+    margin-top: 0.1rem;
+    height: 0.14rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_phone .boc_left_phone_text{
+    float: left;
+    color: #999999;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_phone .boc_left_phone_value {
+    float: left;
+    color: #999999;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_address {
+    margin-top: 0.1rem;
+    height: 0.14rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_address .boc_left_address_text{
+    float: left;
+    color: #999999;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_left .boc_left_bottom
+.boc_left_address .boc_left_address_value {
+    float: left;
+    color: #999999;
+    font-size: 0.1rem;
+}
+
+.bid_order_card .bid_order_card_right {
+    float: right;
+    width: 1rem;
+    font-size: 0.12rem;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.bid_order_card .boc_right_icon {
+    width: 0.27rem;
+}
+
+.bid_order_card .boc_right_status {
+    color: #999999;
+}
+
+/*上传头像*/
+.upload_portrait_middle {
+    width: 100%;
+    height: 100%;
+}
+
+.upload_portrait_middle img {
+    width: 100%;
+    margin-top: 45%;
+}
+
+.bind_user .content {
+    font-size: 0.15rem;
+    background: #ffffff;
+    padding: 10px 20px;
+}
+.bind_user .content .item{
+    line-height: 0.4rem;
+}
+.bind_user .content .item.mobile{
+    float: left;
+    width: 70%;
+}
+.bind_user .content .item label{
+    float: left;
+    width: 30%;
+}
+.bind_user .content .item input{
+    float: right;
+    width: 70%;
+    line-height: 0.4rem;
+    text-align: right;
+    border: none;
+}
+.bind_user .content .item button{
+    border: none;
+    color: white;
+    background: #72C530;
+    line-height: 0.25rem;
+}
+.bind_user .content .item.send{
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+.bind_user .content .item.code{
+    margin: 5px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.bind_user .footer {
+    position: fixed;
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    bottom: 0;
+    background-color: #72C530;
+    color: #ffffff;
+    font-size: 0.18rem;
+    text-align: center;
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.santi.core.dao.WithDrawDao">
+	<!-- <cache /> -->
+	<resultMap id="withDraw" type="com.santi.core.entity.WithDrawEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="member_id" property="memberId" jdbcType="INTEGER" />
+		<result column="withdraw_money" property="withdrawMoney" jdbcType="INTEGER" />
+		<result column="withdraw_time" property="withdrawTime" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="audit_desc" property="desc" jdbcType="VARCHAR" />
+		<result column="auditor" property="auditor" jdbcType="INTEGER" />
+		<result column="audit_date" property="checkDate" jdbcType="INTEGER" />
+		<result column="pay_time" property="payTime" jdbcType="VARCHAR" />
+		<result column="payer" property="payor" jdbcType="INTEGER" />
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+		<result column="nickName" property="nickName" jdbcType="VARCHAR" />
+		<result column="realName" property="realName" jdbcType="VARCHAR" />
+ 		<result column="mobile" property="mobile" jdbcType="VARCHAR" />
+	</resultMap>
+ 
+ 	<select id="getWithDrawList" resultMap="withDraw" parameterType="com.santi.core.param.SearchWithDrawParam">
+			select wt.*, mt.nickname as nickName, mt.realname as realName, mt.cellphone as mobile 
+			from withdraw_tbl wt LEFT JOIN member_tbl mt on wt.member_id =  mt.id
+			where 1=1 	and wt.status = #{status}
+		<if test="userId != null and userId != ''  ">
+			and wt.member_id = #{userId}
+		</if>
+	</select>
+	
+	<select id="findEntityById" parameterType="long" resultMap="withDraw">
+		select * from withdraw_tbl where id = #{id}
+	</select>
+	
+	<update id="updateEntity" parameterType="com.santi.core.entity.WithDrawEntity">
+		update withdraw_tbl
+		<set>
+			<if test="status != null">
+				status = #{status},
+			</if>
+			<if test="desc != null">
+				audit_desc = #{desc},
+			</if>
+			<if test="auditor != null and auditor != ''  ">
+				auditor = #{auditor},
+			</if>
+			<if test="checkDate != null">
+				audit_date = #{checkDate},
+			</if>
+			<if test="payor != null and payor != ''  ">
+				payer = #{payor},
+			</if>
+			<if test="payTime != null">
+				pay_time = #{payTime},
+			</if>
+			<if test="updateTime != null">
+				updated_time = #{updateTime},
+			</if>
+			updated_by = #{updateBy}
+		</set>
+		where id = #{id}
+	</update>
+	
+	<insert id="createEntity" parameterType="com.santi.core.entity.WithDrawEntity">
+		insert into withdraw_tbl
+		(member_id, withdraw_money, withdraw_time, status,
+		audit_desc, created_time, updated_time, created_by, updated_by
+		)
+		values
+		(
+		#{memberId},
+		#{withdrawMoney},
+		#{withdrawTime}, 
+		#{status},
+		#{desc},
+		#{createTime},
+		#{updateTime},
+		#{createBy},
+		#{updateBy}
+		)
+	</insert>
+</mapper>

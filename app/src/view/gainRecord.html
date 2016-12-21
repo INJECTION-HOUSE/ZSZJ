@@ -1,0 +1,70 @@
+<div class="common_content">
+    <div class="gain_record_head">
+        <div class="head_top">
+            <!--<img class="head_top_icon" />-->
+            <div class="head_top_text">可提现收益</div>
+            <div class="head_top_btn">提现</div>
+        </div>
+        <div class="head_record">
+            <div class="head_record_unit">￥</div>
+            <div class="head_record_value">{{availcash}}</div>
+        </div>
+    </div>
+
+    <div ng-show="dataList.length == 0" class="tips">暂无数据:(</div>
+    <div ng-repeat="item in dataList" class="gain_record_card">
+        <div class="gain_record_card_top">
+            <div class="gr_title">{{item.orderTitle}}</div>
+            <div class="gr_time">{{dateFormatter(item.incomeTime)}}</div>
+        </div>
+        <div class="gain_record_card_middle">
+            <div class="gr_number">
+                <div class="gr_number_text">订单编号：</div>
+                <div class="gr_number_value">{{item.orderNumber}}</div>
+            </div>
+            <div class="gr_others">
+                <div class="gr_publish">发布商：{{item.vendor}}</div>
+                <div class="gr_income_type">收入：{{getIncomeType(item.withDraw)}}</div>
+                <div class="gr_order_source">订单来源：{{getSourceFrom(item.sourceFrom)}}</div>
+            </div>
+        </div>
+        <div class="gain_record_card_bottom">
+            <div class="grcb_left">
+                <div class="grcb_money">￥{{item.tradeAmount}}</div>
+                <div class="grcb_money_text">成交金额</div>
+            </div>
+            <div class="grcb_right">
+                <div class="grcb_money">￥{{item.income}}</div>
+                <div class="grcb_money_text">实际收益</div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="gain_record_card">
+        <div class="gain_record_card_top">
+            <div class="gr_title">我的机器坏了</div>
+            <div class="gr_time">2016-09-09</div>
+        </div>
+        <div class="gain_record_card_middle">
+            <div class="gr_number">
+                <div class="gr_number_text">订单编号：</div>
+                <div class="gr_number_value">WX11232334</div>
+            </div>
+            <div class="gr_others">
+                <div class="gr_publish">发布商：KAKU</div>
+                <div class="gr_income_type">收入：现金收入</div>
+                <div class="gr_order_source">订单来源：PC端</div>
+            </div>
+        </div>
+        <div class="gain_record_card_bottom">
+            <div class="grcb_left">
+                <div class="grcb_money">￥1000</div>
+                <div class="grcb_money_text">成交金额</div>
+            </div>
+            <div class="grcb_right">
+                <div class="grcb_money">￥1000</div>
+                <div class="grcb_money_text">实际收益</div>
+            </div>
+        </div>
+    </div>-->
+</div>

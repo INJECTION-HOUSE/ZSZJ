@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+.container-fluid{position:relative;}
+.main-content{min-height:730px; padding-bottom:10px; background-color:#fff;}
+.sidebar{position:absolute; top:0; float:none;border-right:1px solid #ddd;}
+.bg-f2{background-color:#f2f2f2;}
+textarea {resize: none;}
+.gonggao textarea ,.fenlei textarea{ width:100%; height:28px;}
+textarea:disabled{ border:none; margin:1px;background:none;}
+.mb10{margin-bottom:10px;}
+.bb1{ border-bottom:1px solid #ddd;}
+.pb10{ padding-bottom:10px;}
+.ml20{margin-left:20px;}
+tbody button{margin-right:5px !important; min-width:52px;}
+tbody button:last-child{ margin:0 !important;} 
+table td,table th{ vertical-align:middle !important;}
+.w1{ width:69px !important;}
+.wtime{ width:100px !important;}
+.wnumber{ width:50px !important;}
+.wuser{ width:100px !important;}
+.w147{ width:147px !important;}
+.w2{ width:126px !important; width:126px\9 !important;}
+.w3{ width:183px !important; width:183px\9 !important;}
+.w3-lg{ width:207px !important;  width:238px\9 !important;}
+.wcomment{ width:114px !important;}
+.wsex{ width:50px !important;}
+.p0{ padding:0 !important;}
+.pt10{ padding-top:10px !important;}
+.pr10{ padding-right:10px;}
+.upload span{ position:relative; margin-right:5px; display:inline-block;}
+.upload span i{ position:absolute;right:0; bottom:0;padding:3px 5px; background-color:#abbac3; color:#fff; opacity:.8; border-radius:8px;}
+.upload span i:hover{background-color:#8b9aa3; opacity:1;}
+.pt5{ padding-top:5px;}
+.bb1{ border-bottom:1px solid #ddd;}
+.bt1{ border-top:1px solid #ddd;}
+input[type="checkbox"]:checked+label{background-color: #428bca!important;border-color: #428bca;}
+table{font-size:13px;}
+.footer{background-color:#f2f2f2;height:60px; overflow:hidden; padding-top:10px; border-top:1px solid #ddd;}
+.radio label{display:block\9; float:left\9;}
+input[type=checkbox].ace,input[type=radio].ace{float:left\9; margin:0\9; display:block\9; width:20px;}
+input[type=checkbox].ace+.lbl, input[type=radio].ace+.lbl{width:90px\9; display:block\9;float:left\9; margin-left:20px\9;}
+.pagination{ margin:0;float:right; padding-right:20px;}
+.form-horizontal .radio{padding-top:3px;}
+.newtime label{padding-right:0;}
+.newtime .col-xs-8{padding:0}
+.center{text-align: center;}
+#err{color: red;}
+.theme-btn>i{ border:2px solid #fff; margin-left:0.5em; vertical-align:text-bottom; display:inline-block; width:1.2em; height:1.2em; cursor:pointer; }
+.theme-btn>i:hover{ opacity:0.8; }
+.theme-green{ background-color:#00b9aa;}
+.theme-blue{ background-color:#3a5568;}
+.theme-yellow{ background-color:#FFC210;}

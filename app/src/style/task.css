@@ -1,0 +1,431 @@
+.tips{
+    font-size: 0.2rem;
+    text-align: center;
+}
+.task_content {
+    height: 6rem;
+    overflow-y: auto;
+}
+.task_content .task_item {
+    padding: 0.08rem 0.16rem;
+    background: #ffffff;
+    margin-top: 0.1rem;
+}
+.task_content .horizontal-line {
+    background: #d2d2d2;
+    width: 100%;
+    height: 1px;
+    margin: 10px 0 7px 0;
+}
+.task_content .task_item .first_line.left_part {
+    float: left;
+    font-size: 0.14rem;
+}
+.task_content .task_item .first_line.left_part .amount{
+    color: #de4b0a;
+}
+.task_content .task_item .first_line.left_part .title{
+    color: #72c530;
+}
+.task_content .task_item .first_line.left_part .category{
+    color: #666666;
+    font-size: 0.12rem;
+}
+.task_content .task_item .first_line.right_part {
+    float: right;
+    width: 0.64rem;
+    min-width: 60px;
+    text-align: center;
+    color: #72c530;
+    font-size: 0.12rem;
+}
+.task_content .task_item .first_line.right_part img{
+    width: 0.18rem;
+}
+.task_content .task_item .second_line.left_part {
+    float: left;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    font-size: 0.1rem;
+    color: #999999;
+}
+.task_content .task_item .second_line.left_part label{
+    margin-right: 0.15rem;
+    white-space: nowrap;
+}
+.task_content .task_item .second_line.right_part {
+    float: right;
+    font-size: 0.12rem;
+}
+.task_content .task_item .second_line.right_part button{
+    width: 0.64rem;
+    height: 0.25rem;
+    min-width: 60px;
+    line-height: 0.25rem;
+    background: #999999;
+    color: #666666;
+    border-radius: 0.04rem;
+    border: none;
+}
+.task_content .task_item .second_line.right_part button.active{
+    background: #72C530;
+    color: #ffffff;
+}
+
+.task_detail {
+
+}
+.task_detail .header{
+    background: url("../images/icons/task_detail_header.png") no-repeat;
+    height: 1.8rem;
+    background-size: 100% 1.8rem;
+    color: #ffffff;
+    font-size: 0.15rem;
+}
+.task_detail .header .header_task{
+    float: left;
+    margin-left: 0.16rem;
+    margin-top: 0.1rem;
+}
+.task_detail .header .header_task img{
+    float: left;
+    width: 0.2rem;
+    margin-right: 0.05rem;
+}
+.task_detail .header .header_bid{
+    float: right;
+    width: 0.7rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    margin-top: 0.1rem;
+    margin-right: 0.16rem;
+    background: #999999;
+    color: #666666;
+    border-radius: 0.04rem;
+    text-align: center;
+
+}
+.task_detail .header .header_bid.active{
+    color: #72C530;
+    background: #ffffff;
+}
+.task_detail .header .task_fee{
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ffffff;
+    line-height: 1.8rem;
+}
+.task_detail .header .task_fee span{
+    font-size: 0.36rem;
+}
+.task_detail .footer {
+    position: fixed;
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    bottom: 0;
+    background-color: #72C530;
+    color: #ffffff;
+    font-size: 0.18rem;
+    text-align: center;
+}
+.task_detail .content {
+    margin-top: 0.1rem;
+    margin-bottom: 0.5rem;
+    background: #ffffff;
+    padding: 0.15rem;
+}
+.task_detail .content .task_title {
+    font-size: 0.15rem;
+    font-weight: bold;
+    color: #72C530;
+}
+.task_detail .content .task_base {
+    margin-top: 0.15rem;
+    font-size: 0.1rem;
+    color: #999999;
+}
+.task_detail .content .task_base label{
+    margin-right: 0.1rem;
+    white-space: nowrap;
+}
+.task_detail .content .task_base label span{
+    margin: 0 2px;
+    color: #72C530;
+}
+.task_detail .content .task_status {
+    margin-top: 0.2rem;
+    color: #999999;
+}
+.task_detail .content .task_status li {
+    float: left;
+    width: 0.64rem;
+    height: 0.01rem;
+    position: relative;
+    background:#d2d2d2;
+}
+.task_detail .content .task_status li .circle{
+    float: left;
+    display:inline-block;
+    width:0.13rem;
+    height:0.13rem;
+    margin-left: 0.25rem;
+    margin-top: -0.065rem;
+    background:#d2d2d2;
+    border-radius:50%;
+}
+.task_detail .content .task_status li .circle_info{
+    float: left;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 0.12rem;
+    color: #999999;
+}
+.task_detail .content .task_status li.active {
+    background:#72C530;
+}
+.task_detail .content .task_status li.active .circle{
+    background:#72C530;
+}
+.task_detail .content .task_status li.active .circle_info{
+    color: #72C530;
+}
+.dash-line {
+    width: 100%;
+    margin: 0.4rem 0 0.15rem 0;
+    border-top: dashed 1px #d2d2d2;
+}
+.task_detail .content .task_desc {
+    font-size: 0.14rem;
+ }
+.task_detail .content .task_desc label{
+    font-size: 0.14rem;
+    color: #999999;
+}
+.task_detail .content .task_desc .desc_info{
+     margin-top: 0.15rem;
+     font-size: 0.12rem;
+     color: #666666;
+}
+.task_detail .content .task_desc .desc_info ul{
+    margin-top: 10px;
+}
+.task_detail .content .task_desc .desc_info li {
+    display: inline-block;
+    margin-right: 0.15rem;
+    margin-bottom: 10px;
+}
+.task_detail .content .task_desc .desc_info li img{
+    width: 1.75rem;
+}
+.taskJoiner {
+    background: #ffffff;
+    padding: 0 0.16rem;
+    font-size: 0;
+}
+.taskJoiner .item{
+    padding: 0.15rem 0;
+    border-bottom: 1px solid #d2d2d2;
+}
+.taskJoiner .item img{
+    float: left;
+    width: 0.6rem;
+}
+.taskJoiner .item .info {
+    float: left;
+    margin-left: 0.15rem;
+}
+.taskJoiner .item .info .name i{
+    height: 0.15rem;
+    width: 0.5rem;
+    background: #999999;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 0.12rem;
+    font-style: normal;
+    padding: 2px 10px;
+    margin-right: 10px;
+}
+.taskJoiner .item .info .name i.active{
+    background: red;
+}
+.taskJoiner .item .info .name label{
+    font-size: 0.14rem;
+    color: #333333;
+}
+.taskJoiner .item .info .number{
+    margin: 7px 0 5px 0;
+    font-size: 0.12rem;
+    color: #666666;
+}
+
+.taskJoiner .item .info .time{
+    font-size: 0.12rem;
+    color: #999999;
+}
+
+.task_bid {
+    font-size: 0;
+}
+.task_bid img {
+    width: 0.15rem;
+    margin-right: 10px;
+}
+.task_bid .bid_desc{
+    height: 1.5rem;
+    width: calc(100% - 0.3rem);
+    background: #ffffff;
+    color: #333333;
+    margin: 0.1rem 0;
+    padding: 0.15rem;
+    font-size: 0.14rem;
+    overflow-y: auto;
+    border: none;
+    resize: none;
+}
+.task_bid .bid_option{
+    background: #ffffff;
+    color: #333333;
+    font-size: 0.14rem;
+    padding: 0.15rem;
+}
+.task_bid .bid_option .amount{
+    line-height: 0.4rem;
+    border-bottom: 1px solid #dedede;
+}
+.task_bid .bid_option .amount input{
+    float: right;
+    width: 70%;
+    line-height: 0.4rem;
+    text-align: right;
+    border: none;
+}
+.task_bid .bid_option .time{
+}
+.task_bid .bid_option .time label{
+    line-height: 0.4rem;
+}
+.task_bid .bid_option .time .radios{
+    margin-left: 0.2rem;
+}
+.task_bid .bid_option .time .radios .radio{
+    /*-webkit-appearance: none;*/
+    float: left;
+    width: 0.95rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    border-radius: 0.15rem;
+    border: 1px solid #dedede;
+    margin-left: 0.15rem;
+    margin-bottom: 10px;
+    color: #666666;
+    background: #ffffff;
+    font-size: 0.12rem;
+    text-align: center;
+}
+.task_bid .bid_option .time .radios .radio.active{
+    background: #72C530;
+    color: #ffffff;
+}
+.task_bid .footer{
+    position: fixed;
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    bottom: 0;
+    font-size: 0.18rem;
+    color: #ffffff;
+    text-align: center;
+}
+.task_bid .footer .cancel{
+    float: left;
+    width: 50%;
+    background: #999999;
+}
+.task_bid .footer .commit{
+    float: left;
+    width: 50%;
+    background: #72C530;
+}
+
+.filter_icon {
+    background: url("../images/icons/filter_list_icon.png") no-repeat center;
+    background-size: 0.23rem 0.19rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: #999999;
+    position: fixed;
+    bottom: 0.7rem;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.task_filter_dialog {
+    display: none;
+    background: #ffffff;
+    font-size: 0;
+}
+
+.task_filter_dialog .filter_item{
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.14rem;
+    text-align: right;
+    border-bottom: 1px solid #d2d2d2;
+}
+.task_filter_dialog .filter_item.last{
+    border: none;
+}
+
+.task_filter_dialog .filter_item label{
+    float: left;
+    color: #666666;
+}
+.task_filter_dialog .filter_item input{
+    float: right;
+    width: 70%;
+    line-height: 0.3rem;
+    text-align: right;
+    border: none;
+}
+.task_filter_dialog .filter_item span{
+    float: right;
+}
+.task_filter_dialog .filter_item select{
+    float: right;
+    width: 70%;
+    line-height: 0.3rem;
+    text-align: right;
+}
+.task_filter_dialog .filter_item .position{
+    float: left;
+    width: 0.95rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    border-radius: 0.15rem;
+    border: 1px solid #dedede;
+    margin-left: 0.15rem;
+    margin-bottom: 10px;
+    color: #666666;
+    background: #ffffff;
+    font-size: 0.12rem;
+    text-align: center;
+}
+
+.task_filter_dialog .filter_item .position.active{
+    background: #72C530;
+    color: #ffffff;
+}
+
+.task_filter_dialog .filter_item .gps{
+    background: url("../images/icons/icon_refresh.png") no-repeat;
+}
+
+.mbsc-wdg .dwcc {
+    background: #ffffff;
+}
+.mbsc-wdg .dwcc input{
+    color: #72C530;
+}

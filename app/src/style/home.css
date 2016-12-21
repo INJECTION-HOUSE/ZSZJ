@@ -1,0 +1,36 @@
+.home_content .content_body{
+    background: url(../images/icons/home_task.png) no-repeat;
+    background-size: 3.32rem 1.66rem;
+    background-position-x: 0.41rem;
+    background-color: #ffffff;
+}
+
+.home_content .content_body .home_menu_icon{
+    float: left;
+    font-size: 0.15rem;
+    color: #666666;
+    width: 20%;
+}
+.home_content .content_body .home_menu_icon.icon1{
+    margin-top: 0.6rem;
+}
+.home_content .content_body .home_menu_icon.icon2{
+    margin-top: 1.25rem;
+    margin-left: -0.1rem;
+    margin-right: 0.1rem;
+}
+.home_content .content_body .home_menu_icon.icon3{
+    margin-top: 1.58rem;
+}
+.home_content .content_body .home_menu_icon.icon4{
+    margin-top: 1.25rem;
+    margin-left: 0.1rem;
+    margin-right: -0.1rem;
+}
+.home_content .content_body .home_menu_icon.icon5{
+    margin-top: 0.6rem;
+}
+
+.home_content .content_body .home_menu_icon img{
+    width: 0.6rem;
+}

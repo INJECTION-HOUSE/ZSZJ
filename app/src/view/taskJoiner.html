@@ -1,0 +1,14 @@
+<div class="taskJoiner">
+    <div ng-show="data.length == 0" class="tips">暂无数据:(</div>
+    <div ng-hide="data.length == 0">
+        <div class="item" ng-repeat="d in data">
+            <img src="{{d.avatar}}" />
+            <div class="info">
+                <div class="name"><i class="{{d.verify ? 'active' : ''}}">{{d.verify ? "已认证" : "未认证"}}</i><label>{{d.nickName}}</label></div>
+                <div class="number">投标编号: {{d.bidNumber || "-"}}</div>
+                <div class="time">提交时间: {{formatDate(d.time)}}</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

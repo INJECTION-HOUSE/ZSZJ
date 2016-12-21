@@ -1,0 +1,31 @@
+<div class="task_bid">
+    <textarea class="bid_desc" ng-model="data.bidContent" placeholder="请简单地描述故障的维修原因，方便雇主抉择"></textarea>
+    <div class="bid_option">
+        <div class="amount">
+            <img src="./images/icons/icon_wallet.png" /><span>维修金额</span>
+            <input type="number" ng-model="data.price" placeholder="请输入维修金额 >">
+        </div>
+        <div class="time">
+            <img src="./images/icons/icon_door.png" /><label>上门时间</label>
+            <div class="radios">
+                <!--<input type="radio" name="arrive_time" value="15分钟内" /><label>15分钟内</label>-->
+                <!--<input type="radio" name="arrive_time" value="30分钟内" />-->
+                <!--<input type="radio" name="arrive_time" value="1小时内" />-->
+                <!--<input type="radio" name="arrive_time" value="2小时内" />-->
+                <!--<input type="radio" name="arrive_time" value="4小时内" />-->
+                <!--<input type="radio" name="arrive_time" value="当天到" />-->
+                <div class="radio" value="1">15分钟内</div>
+                <div class="radio" value="2">30分钟内</div>
+                <div class="radio" value="3">1小时内</div>
+                <div class="radio" value="4">2小时内</div>
+                <div class="radio" value="5">4小时内</div>
+                <div class="radio" value="6">当天到</div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="cancel" ng-click="doCancel()">取消</div>
+        <div class="commit" ng-click="doCommit()">我要投标</div>
+    </div>
+</div>

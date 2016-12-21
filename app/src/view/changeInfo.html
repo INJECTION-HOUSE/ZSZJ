@@ -1,0 +1,114 @@
+<form class="common_content" id="updateDetail">
+    <input type="hidden" name="id" value="{{id}}"/>
+    <input type="hidden" name="memeberId" value="{{memeberId}}"/>
+    <div class="change_info_card">
+        <div class="change_info_card_head">
+            <img class="card_icon" src="./images/icons/change_info_grzl.png"/>
+            <div class="card_name">个人资料</div>
+        </div>
+        <div class="change_info_card_content">
+            <div class="bar">
+                <div class="bar_key">
+                    姓名
+                </div>
+                <!--<img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" placeholder="请输入姓名" name="nickname" value="{{nickname}}" readonly="true">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    性别
+                </div>
+                <img class="bar_arrow" src="./images/icons/member_center_you.png"/>
+                <div class="bar_value">
+                    <select class="select" name="gender" value="{{gender}}">
+                        <option value="0">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    生日
+                </div>
+                <img class="bar_arrow" src="./images/icons/member_center_you.png"/>
+                <div class="bar_value">
+                    <input class="datetimepicker" name="birthday" value="{{birthday}}" placeholder="请选择日期"/>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    电话
+                </div>
+                <!--<img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="telephone" value="{{telephone}}" placeholder="请输入电话">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    QQ
+                </div>
+               <!-- <img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="number" name="qqNumber" value="{{qqNumber}}" placeholder="请输入QQ">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    通讯地址
+                </div>
+               <!-- <img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="workAddress" value="{{workAddress}}" placeholder="请输入通讯地址">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="change_info_card">
+        <div class="change_info_card_head">
+            <img class="card_icon" src="./images/icons/change_info_grjs.png"/>
+            <div class="card_name">个人介绍</div>
+        </div>
+        <div class="change_info_card_content">
+            <div class="bar">
+                <div class="bar_key">
+                    现居城市
+                </div>
+                <!--<img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="currentAddress" value="{{currentAddress}}" placeholder="请输入现居城市">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    职业信息
+                </div>
+               <!-- <img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="occupy" value="{{occupy}}" placeholder="请输入职业信息">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    个人介绍
+                </div>
+                <!--<img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="introdDesc" value="{{introdDesc}}" placeholder="请输入个人介绍">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="bar_key">
+                    擅长技能
+                </div>
+                <!--<img class="bar_arrow" src="./images/icons/member_center_you.png"/>-->
+                <div class="bar_value">
+                    <input type="text" name="skills" value="{{skills}}" placeholder="请输入擅长技能">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" ng-click="saveInfo()">保存</div>
+</form>

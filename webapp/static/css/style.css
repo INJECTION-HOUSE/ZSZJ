@@ -1,0 +1,179 @@
+body{
+	font-size: 14px;
+margin: 0;
+padding: 0;
+
+}
+
+ul button{
+  outline: none;
+	border-radius: 5px;
+	width: 80px;
+height: 30px;}
+
+input[type=text]{
+	background: none;
+}
+
+.title{
+	z-index: 99;
+	margin: 0;
+	width: 100%;
+	height: 30px;
+	background: #E8ECEF;
+	color: #1dabc9;
+	font-size: 16px;
+	padding:12px 0 0 32px;
+	position: fixed;
+}
+
+.form1 label{
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+}
+.form1{
+
+	padding:8% 0 0 15%;
+}
+.form1 p{
+    margin: 30px 0;
+}
+.form1 p input{
+	line-height: 20px;
+	height: 20px;
+	width: 300px;
+}
+.form1 p select{
+	padding: 3px 0;
+	display: inline-block;
+	height: 25px;
+	width: 305px;
+}
+
+.form1 textarea{
+    vertical-align:top;	
+	display: inline-block;
+	height: 100px;
+	width: 300px;
+		
+}
+.form1 .btn_p{
+	padding-left:110px;
+	padding-bottom: 100px; 
+}
+.form1 .btn{
+	border-radius: 5px;
+	margin-left:30px; 
+width: 80px;
+height: 30px;
+}
+/*有表格的页面是form2，其他是form1*/
+.form2{
+	padding:5% 0 0 3%;
+}
+.form2 ul{
+	display: inline-block;
+	padding:0;
+}
+.form2 ul li{
+	margin-right: 40px;
+	line-height: 25px;
+	display: inline-block;
+	border: 1px solid #cdcdcd;
+	    border-radius: 5px;
+	height: 25px;
+	padding-left: 10px;
+	list-style-type: none;
+	float: left;
+}
+.form2 label{
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	border-right: 1px solid #ccc;
+}
+.form2 ul input{
+    border: none;
+	outline: none;
+	height:20px;
+	
+}
+.form2 ul .select_big{
+	width: 180px;
+}
+.form2 ul .select_small{
+	width: 100px;
+}
+.form2 ul select{
+	padding: 3px 0;
+	height:24px;
+	 border: none;
+	display: inline-block;
+	outline: none;
+	width: 180px;
+}
+.form2 .btn_p{
+	padding:20px 0 5px 0;
+	
+}
+.form2 .btn{
+	border-radius: 5px;
+	margin-right:20px; 
+width: 80px;
+height: 30px;
+}
+.form2 table{
+	 border-collapse: collapse;
+	text-align: center;
+	width: 90%;
+	border: 1px solid black;
+}
+.form2 table td{
+	height: 25px;
+	border: 1px solid black;
+}
+.form2 .th{
+	background: #e7e7e7;
+	height: 32px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.form2 .td_left{
+	width: 80px;
+	padding-left: 28px;
+	text-align: left;
+}
+.form2 .fenye{
+  float: right;
+  margin:20px 10% 0 0 ;
+
+}
+.xiazai{
+	margin:10px 0 0 85px;
+}
+
+/*login*/
+.login_big_box li{list-style-type: none;}
+.login_big_box{ width:400px; height:450px; position:absolute; top: 45%; left:50%; margin-left:-200px; margin-top:-240px;   }
+.login_box{ width:400px; height:400px; background:#fff; position:relative; margin-top:100px; height:280px; width:100%;  }
+.login_logo{width:440px; height:140px; position:absolute; top:-80px; left:30%; margin-left:-70px;color: white}
+.login_logo img{width:100%;}
+.login_text_box{width:240px; margin:0 auto; padding-top:60px;}
+.login_text_box ul{padding:0;}
+.login_text_box ul li{width:170px; height:30px; padding:5px; border:1px solid #cdcdcd; padding-left:60px; margin-bottom:15px;}
+.login_text_box ul li input{width:90%; height:30px; line-height:30px; border:0; outline:none;}
+.user_ico{ background:url(../images/user_ico.png) no-repeat; background-size: auto 100%;}
+.password_ico{ background:url(../images/password_ico.png) no-repeat; background-size: auto 100%}
+.login_btn button{ display:inline-block; border:0; outline:none;height:40px; cursor:pointer; color:#fff; width:100%; background:#34c0e2; font-size:16px; font-weight:bold; letter-spacing:10px; text-align:center;}
+.login_btn button a{text-decoration: none;}
+.forget_password{padding:10px 0; width:100%; text-align:right;}
+.forget_password a{color:#9e9e9e;}
+.login_footer{background:#fff; position:absolute; bottom:0; left:0; height:40px; line-height:40px; font-size:14px; color:#b3b3b3; text-align:center; width:100%;}
+.title_box{font-size:30px; color:#fff; text-align:center; font-weight:lighter; letter-spacing:8px; padding-bottom:20px;width:100%;}
+.title_box img{width:100%;}
+
+.file-box{ position:relative;}
+.txt{ background:#ccc; border:1px solid #aaa; height:28px; line-height:28px; outline:none; width:320px;}
+.btn{ background-color:#FFF; border:1px solid #CDCDCD;height:30px; width:70px;}
+.file{ position:absolute; top:0; left:0px; height:30px; filter:alpha(opacity:0);opacity: 0;width:400px }
