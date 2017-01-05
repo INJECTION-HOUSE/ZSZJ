@@ -1,12 +1,11 @@
 define(['angular', 'menu', 'mobiscroll', 'dragRefresh'], function(angular){
     angular.module('task-controller', ['menu','drag-refresh']).controller('taskController', function($scope, $rootScope, $navigate, $timeout, $ajax){
         $scope.taskList = [];
-        var type = $navigate.param("type") || 0;
         $scope.search = {
             startDate: null,
             endDate: null,
             status: 0,
-            type: type
+            type: 0
         };
 
         $scope.init = function(){

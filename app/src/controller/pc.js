@@ -5,22 +5,25 @@ define(['angular', 'menu'], function(angular){
         $scope.memberCenterClick = function(target) {
             $navigate.go('/'+target);
         }
+        $scope.user = {
+            isValid: false,
+            myScore: 0,
+            myIncome: 0,
+            userName: $rootScope.user.nickname || "",
+            headimgurl : $rootScope.user.headimgurl || ""
+        };
 
         $scope.init = function(){
-            $scope.isValid = $rootScope.user.valid;
-            $scope.myScore = $rootScope.user.myScore;
-            $scope.myIncome = $rootScope.user.myIncome;
-            $scope.userName = $rootScope.user.nickname;
-            // 获取头像
             $ajax.get({
-                url:"/personCenter/avatar",
+                url:"/api/wechat/requestUserInfo",
                 cache:false,
+                data: {
+                    openId: $rootScope.user.openid
+                },
                 success:function(data){
-                    if(data.result==1){
-                        $(".member_center_photo_img").attr("src","upload/"+data.avatarPath);
-                    }else{
-                        $(".member_center_photo_img").attr("src","./images/icons/member_center_wtx.png");
-                    }
+                    $scope.user.isValid = data.valid ? true : false;
+                    $scope.user.myIncome = data.income ? data.income : 0;
+                    $scope.user.myScore = data.score ? data.score : 0;
                 }
             });
             // 获取用户身份
@@ -32,10 +35,9 @@ define(['angular', 'menu'], function(angular){
                         $("#repairtaskId").hide();
                         if(data.role == 'unknown') {
                             $(".member_center_person_type").html("未认证");
-                            /*$("#applyCertificationBtn").bind("click", function () {
-                                console.log("go personal or enterpriser certification...");
-                                window.location.href="${pageContext.request.contextPath}/personCenter/goCertification"
-                            });*/
+//                            $(".member_center_person_type").unbind("click").bind("click", function(e){
+//                                $navigate.go('/bindUser');
+//                            });
                         }
                         if(data.role == 'processing') {
                             $(".member_center_person_type").html("认证处理中");

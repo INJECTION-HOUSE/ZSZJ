@@ -132,7 +132,7 @@ define(['angular', 'angularroute', 'controller/index', 'controller/home', 'contr
         }).when('/gainRecord', {
             templateUrl: 'view/gainRecord.html',
             controller: "gainRecordController"
-        }).when('/addOrder', {
+        }).when('/addOrder/:type', {
             templateUrl: 'view/addOrder.html',
             controller: "addOrderController"
         }).when('/uploadPortrait', {

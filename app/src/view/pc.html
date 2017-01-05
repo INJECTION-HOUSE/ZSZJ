@@ -6,24 +6,24 @@
                 <div class="member_center_jf_imgdiv">
                     <img class="member_center_jf_img" src="./images/icons/member_center_jf.png"/>
                 </div>
-                <div class="member_center_jf_num">{{myScore}}</div>
+                <div class="member_center_jf_num">{{user.myScore}}</div>
                 <div class="member_center_jf_text">积分</div>
             </div>
             <div class="member_center_photo">
                 <div class="member_center_photo_circle1">
                     <div class="member_center_photo_circle2">
-                        <img class="member_center_photo_img" src="./images/icons/member_center_wtx.png"></img>
+                        <img class="member_center_photo_img" src="{{user.headimgurl}}" />
                     </div>
                 </div>
             </div>
             <div class="member_center_income">
                 <img class="member_center_sy_img" src="./images/icons/member_center_sy.png"/>
-                <div class="member_center_sy_num">{{myIncome}}</div>
+                <div class="member_center_sy_num">{{user.myIncome}}</div>
                 <div class="member_center_sy_text">收益</div>
             </div>
         </div>
         <div class="member_center_name">
-            <span>{{userName}}</span>
+            <span>{{user.userName}}</span>
             <img src="./images/icons/member_center_edit.png" ng-click="memberCenterClick('changeInfo')"/>
         </div>
         <div class="member_center_person_type_div">
@@ -55,7 +55,7 @@
         <div class="common_long_bar_text">维修任务</div>
         <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
     </div>
-    <div class="common_long_bar" ng-click="memberCenterClick('bindUser')" ng-show="!isValid">
+    <div class="common_long_bar" ng-click="memberCenterClick('bindUser')" ng-show="!user.isValid">
         <img class="common_long_bar_img" src="./images/icons/member_center_tbjl.png"/>
         <div class="common_long_bar_text">绑定手机</div>
         <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>

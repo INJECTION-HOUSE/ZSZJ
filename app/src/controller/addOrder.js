@@ -1,36 +1,33 @@
 define(['angular'], function(angular){
-    angular.module('add-order-controller', []).controller('addOrderController', function($scope, $routeParams, $navigate, $ajax){
+    angular.module('add-order-controller', []).controller('addOrderController', function($scope, $routeParams, $navigate, $ajax, $rootScope){
+        $scope.data = {
+            arriveTime: 0
+        };
 
         $scope.init = function() {
+            $(".select").mobiscroll().select({
+                lang: "zh",
+                theme: "mobiscroll",
+                display: "bottom"
+            });
+            var type = $routeParams.type || 1;
+            $(".problemCategory").val(type);
+
+            $(".datetimepicker").mobiscroll().date({
+                lang: "zh",
+                theme: "mobiscroll",
+                display: "bottom"
+            });
+
+            $(".radio").unbind("click").bind("click", function(e){
+                $(".radio").removeClass("active");
+                $(e.currentTarget).addClass("active");
+                var arriveTime = $(e.currentTarget).attr("value");
+                $scope.data.arriveTime = arriveTime;
+            });
         };
 
         $scope.init();
-
-        $(".select").mobiscroll().select({
-            lang: "zh",
-            theme: "mobiscroll",
-            display: "bottom"
-        });
-
-        $(".datetimepicker").mobiscroll().date({
-            lang: "zh",
-            theme: "mobiscroll",
-            display: "bottom"
-        });
-
-        $scope.data = {
-            taskId: $routeParams.id,
-            bidContent: "",
-            price: null,
-            arriveTime: 0
-        }
-
-        $(".radio").bind("click", function(e){
-            $(".radio").removeClass("active");
-            $(e.currentTarget).addClass("active");
-            var arriveTime = $(e.currentTarget).attr("value");
-            $scope.data.arriveTime = arriveTime;
-        });
 
         $scope.addOrderCommit = function() {
             var taskTitle = $('.problemTitle').val();
@@ -67,6 +64,9 @@ define(['angular'], function(angular){
                 alert("请输入故障发生时间");
                 return;
             }
+            var pos = $rootScope.user.address;
+            var province = pos.substr(0, 2);
+            var city = pos.substr(2, 2);
             var params = {
                 taskTitle: taskTitle,
                 category: $('.problemCategory').val(),
@@ -74,11 +74,11 @@ define(['angular'], function(angular){
                 cellphone: cellphone,
                 prepayFee: prepayFee,
                 addressDetail: addressDetail,
-                province: '',
-                city: '',
+                province:province,
+                city: province,
                 county: '',
-                deadline: $('.problemStopTime').val(),
-                errorTime: errorTime
+                deadline: new Date($('.problemStopTime').val()).getTime(),
+                errorTime: new Date(errorTime).getTime()
             }
 
             $ajax.post({

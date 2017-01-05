@@ -1,11 +1,11 @@
 <form class="add_order">
     <div class="add_order_option">
         <div class="problem_address bar">
-            <img src="./images/icons/add_order_sj.png" /><span>标题</span>
+            <!--<img src="./images/icons/add_order_sj.png" />--><span>标题</span>
             <input class="problemTitle" type="text" ng-model="data.problemTitle" placeholder="填写标题 >"/>
         </div>
        <div class="problem_time bar">
-            <img src="./images/icons/add_order_sj.png" /><span>故障发生时间</span>
+            <!--<img src="./images/icons/add_order_sj.png" />--><span>故障发生时间</span>
             <input class="datetimepicker problemTime" name="problemTime" placeholder="选择故障日期 >"/>
         </div>
       <!--  <div class="time">
@@ -21,7 +21,7 @@
             </div>
         </div>-->
         <div class="problem_category bar">
-            <img src="./images/icons/add_order_sj.png" /><span>问题分类</span>
+            <!--<img src="./images/icons/add_order_sj.png" />--><span>问题分类</span>
             <select class="select problemCategory" name="problemCategory" >
                 <option value="1">常见故障</option>
                 <option value="2">机械故障</option>
@@ -33,19 +33,23 @@
         </div>
         <textarea class="problem_desc" ng-model="data.problemDesc" placeholder="请简单地描述故障，方便我们的工作人员提前准备"></textarea>
         <div class="problem_phone bar">
-            <img src="./images/icons/add_order_dh.png" /><span>联系电话</span>
+            <span>上传图片</span>
+            <input class="problemImg" type="file" accept="image/*" placeholder="点击选择图片 >"/>
+        </div>
+        <div class="problem_phone bar">
+            <!--<img src="./images/icons/add_order_dh.png" />--><span>联系电话</span>
             <input class="problemPhone" type="number" placeholder="填写联系电话 >"/>
         </div>
         <div class="problem_money bar">
-            <img src="./images/icons/add_order_smf.png" /><span>预约金额</span>
+            <!--<img src="./images/icons/add_order_smf.png" />--><span>预约金额</span>
             <input class="problemMoney" type="number" value="50" placeholder="填写预约金额 >"/>
         </div>
         <div class="problem_address bar">
-            <img src="./images/icons/add_order_dz.png" /><span>详细地址</span>
+            <!--<img src="./images/icons/add_order_dz.png" />--><span>详细地址</span>
             <input class="problemAddress" type="text" placeholder="填写地址 >"/>
         </div>
         <div class="problem_stop_time bar">
-            <img src="./images/icons/add_order_rq.png" /><span>截止日期</span>
+            <!--<img src="./images/icons/add_order_rq.png" />--><span>截止日期</span>
             <input class="datetimepicker problemStopTime" placeholder="选择截止日期 >"/>
         </div>
     </div>

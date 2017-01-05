@@ -2,6 +2,7 @@ package com.santi.core.service;
 
 import com.santi.core.datamodel.dto.WeiXinUserInfoBean;
 import com.santi.core.entity.WeiXinUserEntity;
+import com.santi.core.entity.WeiXinUserInfoEntity;
 
 public interface WeiXinUserInfoService {
 	
@@ -14,5 +15,7 @@ public interface WeiXinUserInfoService {
 	public boolean isExistUser(String openid);
 	
 	public void deleteWXUser(String openid);
+	
+	public WeiXinUserInfoEntity getUserInfo(String openid);
 
 }

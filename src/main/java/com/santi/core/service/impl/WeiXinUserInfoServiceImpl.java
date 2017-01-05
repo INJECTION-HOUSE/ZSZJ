@@ -16,6 +16,7 @@ import com.santi.core.entity.MemberEntity;
 import com.santi.core.entity.RoleEntity;
 import com.santi.core.entity.UserRoleEntity;
 import com.santi.core.entity.WeiXinUserEntity;
+import com.santi.core.entity.WeiXinUserInfoEntity;
 import com.santi.core.global.common.LoginInfo;
 import com.santi.core.global.common.LoginInfoUtil;
 import com.santi.core.service.WeiXinUserInfoService;
@@ -137,6 +138,12 @@ public class WeiXinUserInfoServiceImpl implements WeiXinUserInfoService {
 	@Transactional(readOnly = false)
 	public void deleteWXUser(String openid) {
 		userInfoDao.delete(openid);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public WeiXinUserInfoEntity getUserInfo(String openid) {
+		return userInfoDao.getUserInfo(openid);
 	}
 
 }

@@ -35,6 +35,7 @@ import com.santi.core.entity.MemberAuditEntity;
 import com.santi.core.entity.MemberEntity;
 import com.santi.core.entity.UserEntity;
 import com.santi.core.entity.WeiXinUserEntity;
+import com.santi.core.entity.WeiXinUserInfoEntity;
 import com.santi.core.global.common.ApplicationConstants;
 import com.santi.core.global.common.LoginInfo;
 import com.santi.core.global.common.LoginInfoUtil;
@@ -246,6 +247,14 @@ public class WeiXinClientController {
 			e.printStackTrace();
 		}
 
+	}
+	
+	@RequestMapping(value = "/requestUserInfo", method = RequestMethod.GET)
+	@ResponseBody
+	public WeiXinUserInfoEntity getUserInfo(String openId) {
+		WeiXinUserInfoEntity entity = wxUserInfoService.getUserInfo(openId);
+		return entity;
+		
 	}
 
 }

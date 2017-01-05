@@ -1,5 +1,5 @@
 define(['angular'], function(angular){
-    angular.module('bind-user-controller', []).controller('bindUserController', function($scope, $navigate, $ajax){
+    angular.module('bind-user-controller', []).controller('bindUserController', function($scope, $rootScope, $navigate, $ajax){
         $scope.data = {
             mobile: "",
             code: ""
@@ -55,9 +55,22 @@ define(['angular'], function(angular){
                 alert("请输入正确的验证码");
                 return false;
             }
-            console.log("todo bind user");
+            $ajax.get({
+                url: "/api/wechat/bindWeixinAccount",
+                data: {
+                	openId: $rootScope.user.openid,
+                    cellphone: $scope.data.mobile,
+                    password: $scope.data.code
+                },
+                success: function(d){
+                	$navigate.go("/pc");
+                },
+                error: function(e){
+                    alert("认证用户手机号出错");
+                    
+                }
+            })
 
-            $navigate.go("/pc");
         };
     });
 });

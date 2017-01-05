@@ -43,7 +43,8 @@ define(['angular', 'loading'], function(angular){
 //                console.log("login error: ", e)
 //            }
 //        });
-        var code = $navigate.param("code") || "021wxCFE0Pyomg2ZYQHE0CJWFE0wxCFQ";
+        $rootScope.user = {};
+        var code = $navigate.param("code") || "0211tqz52G0qbM0lOyw52XbAz521tqzt";
         var state = $navigate.param("state") || "ZHUSUZHIJIA-987ERIA12345";
         $ajax.get({
             url: "/api/wechat/requestAccessCode",
