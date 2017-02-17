@@ -1,0 +1,26 @@
+<!--<div class="gain_record_head bid_order_chart"></div>-->
+
+<div ng-show="dataList.length == 0" class="tips">暂无数据:(</div>
+<div ng-repeat="item in dataList" class="bid_order_card">
+    <div class="bid_order_card_right">
+        <img class="boc_right_icon" src="./images/icons/bid_order_zt.png"/><br>
+        <span class="boc_right_status">{{getStatus(item.status)}}</span>
+    </div>
+    <div class="bid_order_card_left">
+        <div class="boc_left_top">
+            <div class="boc_left_money">￥{{item.prepayFee}}</div>
+            <div class="boc_left_title">{{item.taskTitle}}</div>
+        </div>
+        <div class="boc_left_bottom">
+            <div class="boc_left_number">
+                <div class="boc_left_number_text">问题分类：</div>
+                <div class="boc_left_number_value">{{getTaskCategory(item.category)}}</div>
+            </div>
+            <div class="boc_left_address">
+               <!-- <div class="boc_left_address_text">：</div>-->
+                <div class="boc_left_address_value">截止时间：{{getDeadline(item.deadline)}}&nbsp;&nbsp;已参与人数：{{getJoiner(item.joiner)}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"/>
+</div>

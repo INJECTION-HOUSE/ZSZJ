@@ -1,0 +1,69 @@
+
+<div class="common_content">
+    <div class="member_center_head">
+        <div class="member_center_head_div">
+            <div class="member_center_credit">
+                <div class="member_center_jf_imgdiv">
+                    <img class="member_center_jf_img" src="./images/icons/member_center_jf.png"/>
+                </div>
+                <div class="member_center_jf_num">{{user.myScore}}</div>
+                <div class="member_center_jf_text">积分</div>
+            </div>
+            <div class="member_center_photo">
+                <div class="member_center_photo_circle1">
+                    <div class="member_center_photo_circle2">
+                        <img class="member_center_photo_img" src="{{user.headimgurl}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="member_center_income">
+                <img class="member_center_sy_img" src="./images/icons/member_center_sy.png"/>
+                <div class="member_center_sy_num">{{user.myIncome}}</div>
+                <div class="member_center_sy_text">收益</div>
+            </div>
+        </div>
+        <div class="member_center_name">
+            <span>{{user.userName}}</span>
+            <img src="./images/icons/member_center_edit.png" ng-click="memberCenterClick('changeInfo')"/>
+        </div>
+        <div class="member_center_person_type_div">
+            <div class="member_center_person_type"></div>
+        </div>
+    </div>
+    <div class="common_long_bar" ng-click="memberCenterClick('addOrder')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_syjl.png"/>
+        <div class="common_long_bar_text">发布订单</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <div class="common_long_bar" ng-click="memberCenterClick('gainRecord')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_syjl.png"/>
+        <div class="common_long_bar_text">收益记录</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <div id="repairtaskId" class="common_long_bar" ng-click="memberCenterClick('bidOrder')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_wxdd.png"/>
+        <div class="common_long_bar_text">维修订单</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <div class="common_long_bar" ng-click="memberCenterClick('bidRecord')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_tbjl.png"/>
+        <div class="common_long_bar_text">投标记录</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <div class="common_long_bar" ng-click="memberCenterClick('repairTask')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_wxrw.png"/>
+        <div class="common_long_bar_text">维修任务</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <div class="common_long_bar" ng-click="memberCenterClick('bindUser')" ng-show="!user.isValid">
+        <img class="common_long_bar_img" src="./images/icons/member_center_tbjl.png"/>
+        <div class="common_long_bar_text">绑定手机</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>
+    <!--<div class="common_long_bar" ng-click="memberCenterClick('')">
+        <img class="common_long_bar_img" src="./images/icons/member_center_scjn.png"/>
+        <div class="common_long_bar_text">擅长技能</div>
+        <img class="common_long_bar_arrow" src="./images/icons/member_center_you.png"/>
+    </div>-->
+</div>
+<div menu current="pc"></div>

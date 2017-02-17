@@ -1,0 +1,72 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.santi.core.dao.WeiXinUserInfoDao">
+	<resultMap id="userInfo" type="com.santi.core.entity.WeiXinUserEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="nickname" property="nickname" jdbcType="VARCHAR" />
+		<result column="openid" property="openid" jdbcType="VARCHAR" />
+		<result column="gender" property="gender" jdbcType="INTEGER" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="isValid" property="isValid" jdbcType="BIT" />
+		<result column="headimgurl" property="headimgurl" jdbcType="VARCHAR" />
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<resultMap id="userSimpInfo" type="com.santi.core.entity.WeiXinUserInfoEntity">
+		<result column="score" property="score" jdbcType="INTEGER" />
+		<result column="total_cash" property="income" jdbcType="INTEGER" />
+		<result column="isValid" property="isValid" jdbcType="BIT" />
+	</resultMap>
+	
+	<select id="getUserInfo" resultMap="userSimpInfo" parameterType="string">
+		select a.isValid, b.score, b.total_cash from wx_user_tbl a left join member_tbl b 
+		on a.openid = b.weixin_id  where a.openid = #{openid}
+	</select>
+	
+   	<select id="findByOpenId" resultMap="userInfo" parameterType="string">
+		select * from wx_user_tbl where openid = #{openid}
+	</select>
+
+    <delete id="delete" parameterType="string">
+        delete from wx_user_tbl where openid = #{openid}
+    </delete>
+    
+    <select id="isExist" resultType="int" parameterType="string">
+		SELECT count(*) FROM wx_user_tbl
+		<where>
+			openid = #{opendid}
+		</where>
+		limit 1
+	</select>
+
+	<update id="update" parameterType="com.santi.core.entity.WeiXinUserEntity">
+		UPDATE wx_user_tbl SET
+		isValid = #{valid},
+		<if test="headimgurl != null">
+			headimgurl = #{headimgurl}
+		</if>
+		where openid = #{openid}
+	</update>
+
+	<insert id="create" parameterType="com.santi.core.entity.WeiXinUserEntity">
+		insert into wx_user_tbl
+		(nickname, openid, gender, address, isValid, headimgurl,
+		created_time, updated_time, created_by, updated_by
+		)
+		values
+		(
+		#{nickname},
+		#{openid},
+		#{gender},
+		#{address},
+		#{isValid},
+		#{headimgurl},
+		#{createTime},
+		#{updateTime},
+		#{createBy},
+		#{updateBy}
+		)
+	</insert>
+</mapper>

@@ -1,0 +1,64 @@
+<div class="task_content">
+    <ul class="task_head_list">
+        <li class="task_li_1 border_right {{search.type == 1 ? 'active' : ''}}" ng-click="loadData(1)">立注塑机</li>
+        <li class="task_li_2 border_right {{search.type == 2 ? 'active' : ''}}" ng-click="loadData(2)">吹塑机</li>
+        <li class="task_li_3 border_right {{search.type == 3 ? 'active' : ''}}" ng-click="loadData(3)">吸塑机</li>
+        <li class="task_li_4 border_right {{search.type == 4 ? 'active' : ''}}" ng-click="loadData(4)">机械手</li>
+        <li class="task_li_5 {{search.type == 5 ? 'active' : ''}}" ng-click="loadData(5)">卧注塑机</li>
+    </ul>
+    <div class="task_user_content">
+        <div class="user_info">
+            <div class="left_part">
+                <img src="{{user.headimgurl}}">
+                <div>您好 {{user.userName}}<br><p>(注塑之家为您提供上门修理服务)</p></div>
+            </div>
+            <div class="right_part">当前定位 <p>{{user.city}}</p></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="user_btn">
+            <div class="btn_content">
+                <div class="btn" ng-click="addTask()">发布维修</div>
+            </div>
+            <div class="btn_content" ng-hide="user.isValid">
+                <div class="btn" ng-click="doRegister()">绑定手机</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="task_list">
+        <div ng-show="taskList.length == 0" class="tips">暂无数据:(</div>
+        <div ng-repeat="item in taskList" class="task_item" ng-click="taskDetail(item.id)">
+            <div class="item_header">
+                <div class="key">{{$index + 1}}.</div>
+                <div class="value">{{getTaskCategory(item.category)}}</div>
+            </div>
+            <div class="item_content">
+                <div class="item">
+                    <div class="key">
+                        <img src="./images/icons/task_icon_content.png">维修内容
+                    </div>
+                    <div class="value">{{item.taskTitle}}</div>
+                </div>
+                <div class="item">
+                    <div class="key">
+                        <img src="./images/icons/task_icon_time.png">发布时间
+                    </div>
+                    <div class="value">{{formatDate(item.createTime)}}</div>
+                </div>
+                <div class="item">
+                    <div class="key">
+                        <img src="./images/icons/task_icon_cash.png">佣金
+                    </div>
+                    <div class="value">{{item.prepayFee}}元</div>
+                </div>
+                <div class="item">
+                    <div class="key">
+                        <img src="./images/icons/task_icon_status.png">状态
+                    </div>
+                    <div class="value">{{getStatusText(item.status)}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div menu current="task"></div>
