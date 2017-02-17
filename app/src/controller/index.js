@@ -48,8 +48,10 @@ define(['angular', 'loading'], function(angular){
 
 
         $rootScope.user = {};
-        var code = $navigate.param("code") || "0119GDLC1BwWr004eQMC10lWLC19GDLv";
-        var state = $navigate.param("state") || "ZHUSUZHIJIA-987ERIA12345";
+//        var code = $navigate.param("code") || "0119GDLC1BwWr004eQMC10lWLC19GDLv";
+//        var state = $navigate.param("state") || "ZHUSUZHIJIA-987ERIA12345";
+        var code = $navigate.param("code") || "";
+        var state = $navigate.param("state") || "";
         $ajax.get({
             url: "/api/wechat/requestAccessCode",
             data: {
