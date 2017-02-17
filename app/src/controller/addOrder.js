@@ -10,8 +10,8 @@ define(['angular'], function(angular){
                 theme: "mobiscroll",
                 display: "bottom"
             });
-            var type = $routeParams.type || 1;
-            $(".problemCategory").val(type);
+//            var type = $routeParams.type || 1;
+//            $(".problemCategory").val(type);
 
             $(".datetimepicker").mobiscroll().date({
                 lang: "zh",
@@ -64,33 +64,44 @@ define(['angular'], function(angular){
                 alert("请输入故障发生时间");
                 return;
             }
-            var pos = $rootScope.user.address;
-            var province = pos.substr(0, 2);
-            var city = pos.substr(2, 2);
+            var pos = getUserPos($rootScope.user.address);
             var params = {
                 taskTitle: taskTitle,
+                type: $('.problemType').val(),
                 category: $('.problemCategory').val(),
                 taskDesc: $('.problem_desc').val(),
                 cellphone: cellphone,
                 prepayFee: prepayFee,
                 addressDetail: addressDetail,
-                province:province,
-                city: province,
-                county: '',
+                province:pos.province,
+                city: pos.city,
+                county: pos.country,
                 deadline: new Date($('.problemStopTime').val()).getTime(),
                 errorTime: new Date(errorTime).getTime()
-            }
+            };
+
 
             $ajax.post({
                 url: "/personCenter/savetask",
                 data: params,
                 success: function(d){
-                    $navigate.go('/repairTask');
+                    $navigate.go('/pc');
                 },
                 error: function(e){
                     console.log(e);
                 }
             });
+        };
+
+        function getUserPos(pos){
+            var res = {country: "", province: "", city: ""};
+            if(pos){
+                var p = pos.split(" ");
+                res.country = p[0] || "";
+                res.province = p[1] || "";
+                res.city = p[2] || "";
+            }
+            return res;
         };
     });
 });

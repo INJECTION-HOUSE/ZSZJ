@@ -1,0 +1,56 @@
+<div class="task_content">
+    <div drag-refresh hanlder="init()"></div>
+    <div ng-show="taskList.length == 0" class="tips">暂无数据:(</div>
+    <div ng-repeat="item in taskList" class="task_item">
+        <div class="first_line left_part">
+            <label class="amount">￥{{item.prepayFee}}</label>
+            <label class="title">{{item.taskTitle}}</label><br>
+            <label class="category">问题分类：{{getTypeText(item.category)}}</label>
+        </div>
+        <div class="first_line right_part">
+            <img src="./images/icons/bid_order_zt.png"/><br>
+            <span>{{getStatusText(item.status)}}</span>
+        </div>
+        <div class="clear"></div>
+        <div class="horizontal-line"></div>
+        <div class="second_line left_part">
+            <label>{{getSimplePosition(item.geoPosition)}}</label>
+            <label>截止时间：{{getDeadlineText(item.deadline)}}</label>
+            <label>已参与人数：{{getJoinerCount(item.joiner)}}</label>
+        </div>
+        <div class="second_line right_part">
+            <button ng-show="hasBid(item.joiner)" ng-click="taskDetail(item.id)">已投标</button>
+            <button class="active" ng-hide="hasBid(item.joiner)" ng-click="taskDetail(item.id)">未投标</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="filter_icon"></div>
+<div class="task_filter_dialog">
+    <div class="error_line"></div>
+    <div class="filter_item">
+        <label>起始时间</label><input class="start_time" placeholder="请点击选择"/>
+    </div>
+    <div class="filter_item">
+        <label>终止时间</label><input class="end_time" placeholder="请点击选择"/>
+    </div>
+    <div class="filter_item last">
+        <label>任务状态</label>
+        <select class="filter_status">
+            <option value="0"></option>
+            <option value="1">刚发布</option>
+            <option value="2">选标中</option>
+            <option value="3">维修中</option>
+            <option value="4">已完工</option>
+            <option value="5">已付款</option>
+            <option value="6">纠纷</option>
+        </select>
+    </div>
+    <!--<div class="filter_item last">-->
+        <!--<label>选择地区</label>-->
+        <!--<div class="position active">苏州</div>-->
+        <!--<div class="gps">定位</div>-->
+    <!--</div>-->
+</div>
+<div menu current="task"></div>

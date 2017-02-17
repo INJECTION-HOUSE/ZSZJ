@@ -174,7 +174,9 @@ public class WeiXinClientController {
 		UserEntity user = new UserEntity();
 		if(userInfo.isValid()) {
 			MemberEntity member = memberService.getMemberByOpenId(userInfo.getOpenid());
+			user.setId(member.getId());
 			user.setUserAccount(member.getCellphone());
+			userInfo.setId(member.getId());
 		} else {
 			user.setUserAccount("13000001111");
 		}

@@ -15,6 +15,7 @@ public class TaskEntity extends DataEntity {
 	private static final long serialVersionUID = 1L;
 	private Integer taskOwner;
 	private int memberID;
+	private int type;
 	private String category;
 	private Integer cashFund;
 	
@@ -273,6 +274,14 @@ public class TaskEntity extends DataEntity {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

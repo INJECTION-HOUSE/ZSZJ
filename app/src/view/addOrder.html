@@ -8,18 +8,16 @@
             <!--<img src="./images/icons/add_order_sj.png" />--><span>故障发生时间</span>
             <input class="datetimepicker problemTime" name="problemTime" placeholder="选择故障日期 >"/>
         </div>
-      <!--  <div class="time">
-            <img src="./images/icons/icon_door.png" /><label>指定上门时间</label>
-            <div class="radios">
-                <div class="radio" value="1">15分钟内</div>
-                <div class="radio" value="2">30分钟内</div>
-                <div class="radio" value="3">1小时内</div>
-                <div class="radio" value="4">2小时内</div>
-                <div class="radio" value="5">4小时内</div>
-                <div class="radio" value="6">当天到</div>
-                <div class="clear"></div>
-            </div>
-        </div>-->
+        <div class="problem_Type bar">
+            <span>所属机型</span>
+            <select class="select problemType" name="problemType" >
+                <option value="1">立注塑机</option>
+                <option value="2">吹塑机</option>
+                <option value="3">吸塑机</option>
+                <option value="4">机械手</option>
+                <option value="5">卧注塑机</option>
+            </select>
+        </div>
         <div class="problem_category bar">
             <!--<img src="./images/icons/add_order_sj.png" />--><span>问题分类</span>
             <select class="select problemCategory" name="problemCategory" >

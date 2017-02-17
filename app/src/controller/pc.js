@@ -3,6 +3,10 @@ define(['angular', 'menu'], function(angular){
         $scope.text = "会员中心";
 
         $scope.memberCenterClick = function(target) {
+            if(target == 'addOrder' && !$scope.user.isValid){
+                alert("您尚未绑定手机号，请进行绑定。");
+                return;
+            }
             $navigate.go('/'+target);
         }
         $scope.user = {

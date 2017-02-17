@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.santi.core.common.entity.RespJson;
-import com.santi.core.common.entity.RespJsonFactory;
-import com.santi.core.datamodel.dto.BidCommentsDto;
 import com.santi.core.datamodel.dto.TaskBidDto;
+import com.santi.core.entity.TaskAppListEntity;
 import com.santi.core.entity.TaskEntity;
 import com.santi.core.entity.TaskListEntity;
 import com.santi.core.entity.TaskMemberEntity;
+import com.santi.core.param.SearchAppTaskParam;
 import com.santi.core.param.SearchTaskParam;
 import com.santi.core.service.TaskService;
 
@@ -90,6 +89,15 @@ public class TaskController extends BaseController{
 		//TODO: notify task owner, best be a notice from system, not implemented by class MessageService yet.
 		
 		return "task/taskdetail";
+	}
+	
+	@RequestMapping(value = "/getTaskListForApp", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> getTaskListForApp(SearchAppTaskParam param) {
+		Map<String,Object> result=new HashMap<String,Object>();
+		List<TaskAppListEntity> list = taskService.getTaskListForApp(param);
+ 		result.put(REQUEST_SUCCESS, list);
+		return result;
 	}
 
 }

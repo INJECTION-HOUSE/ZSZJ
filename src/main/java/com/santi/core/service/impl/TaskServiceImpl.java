@@ -17,12 +17,14 @@ import com.santi.core.dao.TaskDao;
 import com.santi.core.datamodel.dto.BidCommentsDto;
 import com.santi.core.datamodel.dto.PageListResultDto;
 import com.santi.core.entity.MemberEntity;
+import com.santi.core.entity.TaskAppListEntity;
 import com.santi.core.entity.TaskBidEntity;
 import com.santi.core.entity.TaskEntity;
 import com.santi.core.entity.TaskListEntity;
 import com.santi.core.entity.TaskMemberEntity;
 import com.santi.core.global.common.LoginInfo;
 import com.santi.core.global.common.LoginInfoUtil;
+import com.santi.core.param.SearchAppTaskParam;
 import com.santi.core.param.SearchBidRecordParam;
 import com.santi.core.param.SearchTaskParam;
 import com.santi.core.param.UpdateTaskBidParam;
@@ -59,6 +61,7 @@ public class TaskServiceImpl implements TaskService {
 		taskEntity.setCashFund(taskEntity.getPrepayFee());
 		// taskEntity.setTaskOwner(0);这个以后需要更新的字段
 		
+		taskEntity.setType(taskEntity.getType() > 0 ? taskEntity.getType() : 1);
 		taskEntity.setMemberID(loginInfo.getLoginUser().getId());
 		taskEntity.setVoiceFiles("");
 		taskEntity.setCreateTime(String.valueOf(now));
@@ -208,6 +211,12 @@ public class TaskServiceImpl implements TaskService {
 		hirer.setUpdateTime(String.valueOf(now));
 		memberDao.editMember(repairor);
 		memberDao.editMember(hirer);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<TaskAppListEntity> getTaskListForApp(SearchAppTaskParam param) {
+		return taskDao.getTaskListForApp(param);
 	}
 
 

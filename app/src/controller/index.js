@@ -22,9 +22,11 @@ define(['angular', 'loading'], function(angular){
 //            success: function(d){
 ////                console.log("login result: ", d);
 //                $rootScope.user = {
-//                    id: 2,
-//                    memeberId: 7,
+//                    id: 13,
+//                    memeberId: 13,
 //                    nickname: 'kaku',           // 姓名
+//                    address: '中国 江苏 苏州',
+//                    headimgurl: '',
 //                    gender: 0,                  // 性别
 //                    birthday: '1992-10-10',     // 生日
 //                    telephone: '15262452610',   // 手机号
@@ -43,8 +45,10 @@ define(['angular', 'loading'], function(angular){
 //                console.log("login error: ", e)
 //            }
 //        });
+
+
         $rootScope.user = {};
-        var code = $navigate.param("code") || "0211tqz52G0qbM0lOyw52XbAz521tqzt";
+        var code = $navigate.param("code") || "0119GDLC1BwWr004eQMC10lWLC19GDLv";
         var state = $navigate.param("state") || "ZHUSUZHIJIA-987ERIA12345";
         $ajax.get({
             url: "/api/wechat/requestAccessCode",

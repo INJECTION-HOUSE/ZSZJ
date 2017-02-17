@@ -1,5 +1,5 @@
 define(['angular', 'menu'], function(angular){
-    angular.module('repairTask-controller', ['menu']).controller('repairTaskController', function($scope, $ajax){
+    angular.module('repairTask-controller', ['menu']).controller('repairTaskController', function($scope, $rootScope, $ajax){
         $scope.text = "维修任务";
 
         $scope.init = function() {
@@ -9,10 +9,11 @@ define(['angular', 'menu'], function(angular){
         $scope.dataList = [];
         $scope.getTaskList = function() {
             // TODO 获取用户ID 和 分页
+            var userId = $rootScope.user.id;
             $ajax.get({
                 url : "/task/getTaskList",
                 cache : false,
-                data : {memberId: 7},
+                data : {memberId: userId},
                 success : function(d) {
                     $scope.dataList = d.data;
                 }
@@ -74,6 +75,35 @@ define(['angular', 'menu'], function(angular){
                 return joiner.split(',').length;
             }
         }
+
+        $scope.getTaskCategory = function(type){
+            var res = "";
+            type = parseInt(type);
+            switch(type){
+                case 1:
+                    res = "常见故障";
+                    break;
+                case 2:
+                    res = "机械故障";
+                    break;
+                case 3:
+                    res = "电子故障";
+                    break;
+                case 4:
+                    res = "液压故障";
+                    break;
+                case 5:
+                    res = "电气故障";
+                    break;
+                case 6:
+                    res = "辅助故障";
+                    break;
+                default:
+                    res = "常见故障";
+                    break;
+            }
+            return res;
+        };
 
         $scope.init();
     });

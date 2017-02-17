@@ -3,6 +3,7 @@
 	<resultMap id="task" type="com.santi.core.entity.TaskEntity">
 		<result column="id" property="id" jdbcType="INTEGER" />
 		<result column="order_number" property="orderNumber" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="INTEGER" />
 		<result column="category" property="category" jdbcType="VARCHAR" />
 		<result column="cash_fund" property="cashFund" jdbcType="INTEGER" />
 		<result column="task_title" property="taskTitle" jdbcType="VARCHAR" />
@@ -79,11 +80,25 @@
 		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
 		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<resultMap id="taskAppList" type="com.santi.core.entity.TaskAppListEntity">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="type" property="type" jdbcType="INTEGER" />
+		<result column="category" property="category" jdbcType="VARCHAR" />
+		<result column="prepay_fee" property="prepayFee" jdbcType="INTEGER" />
+		<result column="task_title" property="taskTitle" jdbcType="VARCHAR" />
+		<result column="deadline" property="deadline" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="created_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="updated_time" property="updateTime" jdbcType="VARCHAR" />
+		<result column="created_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="updated_by" property="updateBy" jdbcType="VARCHAR" />
+	</resultMap>
 
 
 	<select id="getTaskList" resultMap="taskList" parameterType="com.santi.core.param.SearchTaskParam">
-		SELECT a.id, a.geo_position, c.code_name as category, a.prepay_fee, a.task_title, a.deadline, a.`status`, a.task_owner, group_concat(b.member_id) as joiner 
-		FROM task_tbl a left join task_bid_tbl b on b.task_id = a.id left join code_tbl c on a.category = c.id WHERE
+		SELECT a.id, a.geo_position, a.type, a. category, a.prepay_fee, a.task_title, a.deadline, a.`status`, a.task_owner, group_concat(b.member_id) as joiner 
+		FROM task_tbl a left join task_bid_tbl b on b.task_id = a.id WHERE
 	    1 = 1 
 	    <if test="memberId != null and memberId != 0">
 			and a.member_id = #{memberId}
@@ -205,7 +220,7 @@
 	
 	<insert id="addTask" parameterType="com.santi.core.entity.TaskEntity">
 		insert into task_tbl
-		(order_number, category, cash_fund, task_title, task_desc,
+		(order_number, type, category, cash_fund, task_title, task_desc,
 		geo_position,
 		error_time, deadline, cellphone, address_detail, prepay_fee,
 		status,
@@ -214,7 +229,7 @@
 		)
 		values
 		(
-		#{orderNumber},#{category},#{cashFund},#{taskTitle},#{taskDesc},
+		#{orderNumber},#{type},#{category},#{cashFund},#{taskTitle},#{taskDesc},
 		#{geoPosition},#{errorTime},#{deadline},
 		#{cellphone},#{addressDetail},#{prepayFee},#{status},
 		#{totalFee},
@@ -265,4 +280,9 @@
 		update task_tbl a, task_bid_tbl b set a.status = 5, a.updated_time = #{updatedTime}, b.comments = #{comments}, 
 		b.satisfaction = #{level}, b.updated_time = #{updatedTime} where a.id = #{taskId} and b.id = #{bidId}
 	</update>
+	
+	<select id="getTaskListForApp" resultMap="taskAppList" parameterType="com.santi.core.param.SearchAppTaskParam">
+	 	select id, type, category, prepay_fee, task_title, deadline, status, created_time, updated_time, created_by, updated_by 
+	 	from task_tbl where type = #{type} and geo_position like concat(concat('%', #{pos}), '%') and status in (0, 1) order by created_time desc
+	</select>
 </mapper>

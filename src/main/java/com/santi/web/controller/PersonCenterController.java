@@ -105,7 +105,7 @@ public class PersonCenterController extends BaseController {
 		List<CodeItemEntity> codes = codeService.listCodeItems(paramMap);
 		Map<Integer, String> codeMap = new HashMap<Integer, String>();
 		for(CodeItemEntity entity : codes) {
-			codeMap.put(entity.getId(), entity.getName());
+			codeMap.put(entity.getIndex(), entity.getName());
 		}
 		model.addAttribute("issueType", codeMap);
 		return "personcenter/newtask";
