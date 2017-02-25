@@ -1,7 +1,7 @@
 <!--<div class="gain_record_head bid_order_chart"></div>-->
 
 <div ng-show="dataList.length == 0" class="tips">暂无数据:(</div>
-<div ng-repeat="item in dataList" class="bid_order_card">
+<div ng-repeat="item in dataList" class="bid_order_card" ng-click="taskDetail(item.id)">
     <div class="bid_order_card_right">
         <img class="boc_right_icon" src="./images/icons/bid_order_zt.png"/><br>
         <span class="boc_right_status">{{getStatus(item.status)}}</span>

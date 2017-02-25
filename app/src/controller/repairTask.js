@@ -1,5 +1,5 @@
 define(['angular', 'menu'], function(angular){
-    angular.module('repairTask-controller', ['menu']).controller('repairTaskController', function($scope, $rootScope, $ajax){
+    angular.module('repairTask-controller', ['menu']).controller('repairTaskController', function($scope, $rootScope, $ajax, $navigate){
         $scope.text = "维修任务";
 
         $scope.init = function() {
@@ -103,6 +103,10 @@ define(['angular', 'menu'], function(angular){
                     break;
             }
             return res;
+        };
+
+        $scope.taskDetail = function(id){
+            $navigate.go('/taskDetail/' + id);
         };
 
         $scope.init();

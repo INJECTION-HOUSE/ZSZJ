@@ -88,6 +88,7 @@ define(['angular'], function(angular){
                     $navigate.go('/pc');
                 },
                 error: function(e){
+                    alert("发布任务失败");
                     console.log(e);
                 }
             });

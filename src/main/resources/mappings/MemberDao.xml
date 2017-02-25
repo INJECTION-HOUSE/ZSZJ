@@ -300,5 +300,10 @@
 		#{updateBy}
 		)
 	</insert>
+	
+	<update id="resetPassword" parameterType="com.santi.core.param.ResetPasswordParam">
+		update member_tbl t
+		set t.password=#{pwd} where cellphone = #{mobile}
+	</update>
 
 </mapper>

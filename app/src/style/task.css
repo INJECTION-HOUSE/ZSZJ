@@ -24,7 +24,9 @@
     list-style: none;
 }
 .task_content .task_head_list li.active{
-    font-weight: bold;
+    /*font-weight: bold;*/
+    background: #ffffff;
+    color: #84c325;
 }
 .task_content .task_head_list li.border_right{
     border-right: 1px solid #ffffff;

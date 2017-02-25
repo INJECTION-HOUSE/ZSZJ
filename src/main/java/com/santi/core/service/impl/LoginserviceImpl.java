@@ -20,6 +20,7 @@ import com.santi.core.entity.AdminEntity;
 import com.santi.core.entity.UserEntity;
 import com.santi.core.global.common.IPUtil;
 import com.santi.core.global.common.LoginInfoUtil;
+import com.santi.core.param.ResetPasswordParam;
 import com.santi.core.service.LoginService;
 
 @Service
@@ -116,6 +117,13 @@ public class LoginserviceImpl implements LoginService {
 			}
 		}
 		return RespJsonFactory.buildFailure("login.error");
+	}
+
+	@Override
+	public void resetPassword(ResetPasswordParam param) {
+		String newPwd = MD5Util.getMD5String(param.getPwd());
+		param.setPwd(newPwd);
+		memberDao.resetPassword(param);
 	}
 
 }

@@ -1,5 +1,5 @@
 define(['angular'], function(angular){
-    angular.module('task-detail-controller', ['menu']).controller('taskDetailController', function($scope, $routeParams, $navigate, $ajax){
+    angular.module('task-detail-controller', ['menu']).controller('taskDetailController', function($scope, $rootScope, $routeParams, $navigate, $ajax){
         $scope.task_id = $routeParams.id;
         $scope.task = {};
         $scope.page = {
@@ -7,7 +7,7 @@ define(['angular'], function(angular){
             btnText: "我要投标"
         };
 
-        $scope.task_images = ["./images/wx_img_01@3x.png", "./images/wx_img_02@3x.png", "./images/gz_img_03@3x.png"];
+        $scope.task_images = [];
 
         $scope.init = function(){
             $ajax.get({
@@ -17,12 +17,15 @@ define(['angular'], function(angular){
                 },
                 success: function(d){
                     $scope.task = d.data;
+                    $scope.task_images = $scope.task.imageFiles || [];
                     if($scope.task.hasBid){
                         $scope.page.btnActive = false;
                         $scope.page.btnText = "已投标";
                     }else if($scope.task.status > 1){
                         $scope.page.btnActive = false;
                         $scope.page.btnText = "已截止";
+                    }else if($scope.task.memberId == $rootScope.user.id){
+                        $scope.page.btnActive = false;
                     }
                 },
                 error: function(e){

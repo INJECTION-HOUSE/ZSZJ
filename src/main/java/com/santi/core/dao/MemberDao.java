@@ -7,6 +7,7 @@ import com.santi.core.datamodel.dto.MemberAuditDto;
 import com.santi.core.entity.MemberAuditEntity;
 import com.santi.core.entity.MemberEntity;
 import com.santi.core.entity.UserEntity;
+import com.santi.core.param.ResetPasswordParam;
 import com.santi.core.param.SearchMemberCheckParam;
 import com.santi.core.param.SearchMemberParam;
 
@@ -65,4 +66,6 @@ public interface MemberDao {
 	public List<UserEntity> findUserName();
 	
 	public MemberEntity getMemberByNickName(String nickname);
+
+	public void resetPassword(ResetPasswordParam param);
 }

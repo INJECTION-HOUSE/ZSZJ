@@ -20,8 +20,11 @@ import com.santi.core.common.util.SMSGateWayProxy;
 import com.santi.core.entity.UserEntity;
 import com.santi.core.global.common.IPUtil;
 import com.santi.core.global.common.LoginInfoUtil;
+import com.santi.core.param.ResetPasswordParam;
 import com.santi.core.service.LoginService;
 import com.santi.core.service.MemberService;
+
+import scala.Console;
 
 
 
@@ -127,5 +130,18 @@ public class LoginController extends BaseController{
 		// fix issue by ZHIGANG on 2016-0913
 		LoginInfoUtil.signOut(request);
 		return RespJsonFactory.buildSuccess();
+	}
+	
+	@RequestMapping("resetPassword")
+	@ResponseBody
+	public boolean resetPassword(HttpServletRequest request, ResetPasswordParam param){
+		try{
+			loginService.resetPassword(param);
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 }

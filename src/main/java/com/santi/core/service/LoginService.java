@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.santi.core.common.entity.RespJson;
 import com.santi.core.entity.UserEntity;
+import com.santi.core.param.ResetPasswordParam;
 
 public interface LoginService {
 
@@ -30,6 +31,8 @@ public interface LoginService {
 	 * @return
 	 */
 	public RespJson passwordUpdate(HttpServletRequest request, String password, String newpassword);
+
+	public void resetPassword(ResetPasswordParam param);
 	
 	
 }
