@@ -1,5 +1,6 @@
 package com.santi.core.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -240,6 +241,16 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional(readOnly = true)
 	public MemberEntity getMemeberByNickName(String nickname) {
 		return memberDao.getMemberByNickName(nickname);
+	}
+
+	@Override
+	public int getBalance(int id) {
+		return memberDao.getBalance(id);
+	}
+
+	@Override
+	public void addTotalCash(HashMap<String, Integer> map) {
+		memberDao.addTotalCash(map);
 	}
 
 }

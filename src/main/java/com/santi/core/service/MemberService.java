@@ -1,5 +1,6 @@
 package com.santi.core.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.santi.core.common.entity.RespJson;
@@ -35,4 +36,8 @@ public interface MemberService {
 	public List<MemberAuditEntity> getMemberCheckList(SearchMemberCheckParam param);
 
 	public List<MemberAuditDto> getMemberAuditList(SearchMemberCheckParam param);
+
+	public int getBalance(int id);
+
+	public void addTotalCash(HashMap<String, Integer> map);
 }

@@ -1,5 +1,6 @@
 package com.santi.core.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,4 +69,8 @@ public interface MemberDao {
 	public MemberEntity getMemberByNickName(String nickname);
 
 	public void resetPassword(ResetPasswordParam param);
+
+	public int getBalance(int id);
+
+	public void addTotalCash(HashMap<String, Integer> map);
 }

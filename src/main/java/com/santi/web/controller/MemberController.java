@@ -122,5 +122,18 @@ public class MemberController extends BaseController{
 		return map;
 	}
 	
- 
+	@RequestMapping(value = "/getBalance", method = RequestMethod.GET)
+	@ResponseBody
+	public int  getBalance(int id) {
+		return memberService.getBalance(id);
+	}
+	
+	@RequestMapping(value = "/addTotalCash", method = RequestMethod.POST)
+	@ResponseBody
+	public void  addTotalCash(int id, int cash) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("id", id);
+		map.put("cash", cash);
+		memberService.addTotalCash(map);
+	}
 }

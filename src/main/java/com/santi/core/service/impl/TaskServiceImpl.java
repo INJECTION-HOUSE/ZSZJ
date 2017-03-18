@@ -1,6 +1,7 @@
 package com.santi.core.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -70,6 +71,11 @@ public class TaskServiceImpl implements TaskService {
 		taskEntity.setUpdateBy(loginInfo.getLoginUser().getUsername());
 		
 		taskDao.addTask(taskEntity);
+		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("id", taskEntity.getMemberID());
+		map.put("cash", taskEntity.getPrepayFee() * -1);
+		memberDao.addTotalCash(map);
 	}
 	
 	@Transactional(readOnly = true)

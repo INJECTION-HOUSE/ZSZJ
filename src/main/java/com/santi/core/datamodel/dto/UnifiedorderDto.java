@@ -25,6 +25,13 @@ public class UnifiedorderDto implements WeiXinConstants {
 		this.notify_url = CALLBACK_URL;
 		this.trade_type = TRADE_TYPE_NATIVE;
 	}
+	
+	public UnifiedorderDto(boolean app){
+		this.appid = APPID;
+		this.mch_id = WXPAYMENTACCOUNT;
+		this.notify_url = APP_CALLBACK_URL;
+		this.trade_type = TRADE_TYPE_JSAPI;
+	}
 
 	public String getAppid() {
 		return appid;
@@ -156,6 +163,41 @@ public class UnifiedorderDto implements WeiXinConstants {
 				   "&notify_url=" + this.notify_url +
 				   "&out_trade_no=" + this.out_trade_no + 
 				   "&product_id=" + this.product_id + 
+				   "&spbill_create_ip=" + this.spbill_create_ip+
+				   "&total_fee=" + String.valueOf(this.total_fee) +
+				   "&trade_type=" + this.trade_type;
+		content = content + "&key=" + WeiXinConstants.MD5_API_KEY;
+		String esignature = WeiXinPaymentUtil.MD5Encode(content, "utf-8");
+		return esignature.toUpperCase();
+	}
+	
+	public String generateAppXMLContent() {
+		String xml = "<xml>" +
+		   "<appid>" + this.appid + "</appid>" + 
+		   "<body>" + this.body + "</body>" + 
+		   "<device_info>WEB</device_info>" + 
+		   "<mch_id>" + this.mch_id + "</mch_id>" + 
+		   "<nonce_str>" + this.nonce_str + "</nonce_str>" +
+		   "<notify_url>" + this.notify_url + "</notify_url>" + 
+		   "<openid>" + this.openId + "</openid>" + 
+		   "<out_trade_no>" + this.out_trade_no + "</out_trade_no>" + 
+		   "<spbill_create_ip>" + this.spbill_create_ip+ "</spbill_create_ip>" +
+		   "<total_fee>" + String.valueOf(this.total_fee) + "</total_fee>" + 
+		   "<trade_type>" + this.trade_type + "</trade_type>" + 
+		   "<sign>" + this.sign + "</sign>" + 
+		"</xml>";
+		return xml;
+	}
+	
+	public String makeAppSign() {
+		String content ="appid=" + this.appid + 
+				   "&body=" + this.body + 
+				   "&device_info=WEB" + 
+				   "&mch_id=" + this.mch_id + 
+				   "&nonce_str=" + this.nonce_str + 
+				   "&notify_url=" + this.notify_url +
+				   "&openid=" + this.openId + 
+				   "&out_trade_no=" + this.out_trade_no + 
 				   "&spbill_create_ip=" + this.spbill_create_ip+
 				   "&total_fee=" + String.valueOf(this.total_fee) +
 				   "&trade_type=" + this.trade_type;

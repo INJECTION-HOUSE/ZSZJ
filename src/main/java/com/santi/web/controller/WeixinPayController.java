@@ -60,7 +60,7 @@ public class WeixinPayController {
 
 	@RequestMapping(value = "/unifiedorder", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> startUnifiedorder(HttpServletRequest request, HttpServletResponse response, @RequestParam String cash ) {
+	public Map<String, Object> startUnifiedorder(HttpServletRequest request, HttpServletResponse response, @RequestParam String cash) {
 		Map<String,Object> result=new HashMap<String,Object>();
 		UnifiedorderDto dto = new UnifiedorderDto();
 		if(cash == null || "".equals(cash)) {
@@ -222,6 +222,65 @@ public class WeixinPayController {
 		} catch (JDOMException e1) {
 			e1.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = "/appUnifiedorder", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> appUnifiedOrder(HttpServletRequest request, HttpServletResponse response, @RequestParam int cash, @RequestParam String openId) {
+		Map<String,Object> result=new HashMap<String,Object>();
+		UnifiedorderDto dto = new UnifiedorderDto(true);
+		int totalfee = 100*cash;
+		logger.info("total recharge cash : " + totalfee);
+		dto.setBody("app_repair");
+		dto.setNonce_str(String.valueOf(System.nanoTime()));
+		LoginInfo loginInfo = LoginInfoUtil.getLoginInfo();
+		// 通过手机号作为身份识别标志
+		dto.setOut_trade_no("wechatorder_" + String.valueOf(System.currentTimeMillis()));
+		dto.setTotal_fee(totalfee);
+		dto.setSpbill_create_ip("127.0.0.1");
+		// generate signature
+		dto.setOpenId(openId);
+		dto.setSign(dto.makeAppSign());
+		logger.info("sign : " + dto.makeSign());
+		logger.info("xml content : " + dto.generateAppXMLContent());
+		try {
+			HttpClient httpClient = HttpClientBuilder.create().build(); 
+			HttpPost post = new HttpPost(WeiXinConstants.UNIFIEDORDER_URL);
+			post.addHeader("Content-Type", "text/xml; charset=UTF-8");
+			StringEntity xmlEntity = new StringEntity(dto.generateAppXMLContent(), ContentType.TEXT_XML);
+			post.setEntity(xmlEntity);
+			HttpResponse httpResponse = httpClient.execute(post);
+			String responseXML = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
+			logger.info("response xml content : " + responseXML);
+			// parse CODE_URL CONTENT
+			Map<String, String> resultMap = (Map<String, String>)XMLUtil.doXMLParse(responseXML);
+			String return_code = resultMap.get("return_code");
+			if(return_code.equals("SUCCESS")){
+				String appid = resultMap.get("appid");
+				String nonce_str = resultMap.get("nonce_str");
+				String sign = resultMap.get("sign");
+				String prepay_id = resultMap.get("prepay_id");
+				result.put("success", "1");
+				result.put("appid", appid);
+				result.put("nonce_str", nonce_str);
+				result.put("sign", sign);
+				result.put("prepay_id", prepay_id);
+			}else{
+				result.put("success", "0");
+				result.put("message", resultMap.get("return_msg"));
+			}
+			post.releaseConnection();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping(value = "/appnotifycallback", method = RequestMethod.POST)
+	@ResponseBody
+	public void appFinishPayment(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("app unified order callback");
 	}
 
 }
