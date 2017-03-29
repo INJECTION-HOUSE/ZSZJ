@@ -6,13 +6,16 @@ public interface WeiXinConstants {
 	public static final int BLACK = 0xFF000000;
 	
 	// 账号信息
-	public static final String APPID = "wx69c23dc789f7bc59";
-	public static final String APP_SECRT_KEY = "b3dad73bcb519095af72a3be7284f0e8";
+//	public static final String APPID = "wx69c23dc789f7bc59";
+//	public static final String APP_SECRT_KEY = "b3dad73bcb519095af72a3be7284f0e8";
+	public static final String APPID = "wx6962b52069f38239";
+	public static final String APP_SECRT_KEY = "628b7c62cc229b455778bb2e059b4710";
 	public static final String APP_OAUTH_STATE = "ZHUSUZHIJIA-987ERIA12345";
 	
 	// 支付验证
-	public static final String WXPAYMENTACCOUNT = "1302370001";
-	public static final String MD5_API_KEY = "804697500bad11e7b4a000ff434a7fc1";
+	public static final String WXPAYMENTACCOUNT = "1406425802";
+//	public static final String MD5_API_KEY = "804697500bad11e7b4a000ff434a7fc1";
+	public static final String MD5_API_KEY = "b5cfd3a3a73b4f3ab85915dedca17f79";
 	
 	// Oauth request access_token url
 	public static final String REQUEST_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + APPID + "&secret=" + APP_SECRT_KEY + "&code={CODE}&grant_type=authorization_code";
