@@ -300,5 +300,18 @@
 		#{updateBy}
 		)
 	</insert>
+	
+	<update id="resetPassword" parameterType="com.santi.core.param.ResetPasswordParam">
+		update member_tbl t
+		set t.password=#{pwd} where cellphone = #{mobile}
+	</update>
 
+	<select id="getBalance" resultType="integer"
+		parameterType="integer">
+		select total_cash from member_tbl where id = #{id}
+	</select>
+	
+	<update id="addTotalCash" parameterType="map">
+		update member_tbl set total_cash = total_cash + #{cash} where id=#{id};
+	</update>
 </mapper>

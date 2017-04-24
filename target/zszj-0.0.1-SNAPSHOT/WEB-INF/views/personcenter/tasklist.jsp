@@ -73,12 +73,41 @@
 					break;
 				};
 				ele += '<li><div class="publish_wrap"><div class="publish_fir"><p class="title"><em>￥' + data[i].prepayFee + '</em><a onclick="goTaskDetail(' + data[i].id + ')">' 
-							+ data[i].taskTitle + '</a></p></div><div class="publish_sec">类别：' + data[i].category + '</div><div class="publish_thir"><span class="publish_span">' 
+							+ data[i].taskTitle + '</a></p></div><div class="publish_sec">类别：' + getCategory(data[i].category) + '</div><div class="publish_thir"><span class="publish_span">' 
 							+ getStatus(data[i].status) + '</span><span class="num">已参与人数' + getJoiner(data[i].joiner) + '</span></div><div class="publish_fou">' 
 							+ getDeadline(data[i].deadline) + '</div><div class="clear"></div></div><div class="clear"></div></li>';
 			}
 			$(".publish_ul").append(ele);
 		}
+		
+		function getCategory(type){
+        var res = "";
+        type = parseInt(type);
+        switch(type){
+            case 1:
+                res = "常见故障";
+                break;
+            case 2:
+                res = "机械故障";
+                break;
+            case 3:
+                res = "电子故障";
+                break;
+            case 4:
+                res = "液压故障";
+                break;
+            case 5:
+                res = "电气故障";
+                break;
+            case 6:
+                res = "辅助故障";
+                break;
+            default:
+                res = "常见故障";
+                break;
+        }
+        return res;
+    };
 		
 		function getJoiner(joiner){
 			if(joiner === null){

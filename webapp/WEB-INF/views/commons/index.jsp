@@ -108,15 +108,9 @@
                               <span class="xiangmu_icon icon"></span>
                               <sapn class="nav_title">维修服务</span>
                              </div>
-                                <div class="list-item none">
-                                    <p><a onclick="loadPage(this, '${pageContext.request.contextPath}/repairService/goCreate')">订单生成</a></p>
-                              </div>
                               <div class="list-item none">
                                     <p><a onclick="loadPage(this, '${pageContext.request.contextPath}/repairService/queryList')">订单查询</a></p>
-                              </div>
-                              <div class="list-item none">
-                                    <p><a onclick="loadPage(this, '${pageContext.request.contextPath}/repairService/manageTasks')">订单管理</a></p>
-                              </div>  
+                              </div> 
                            </li>
                            <li><div class="nav_bg"><a ></a></div>
                              <div class="list">
@@ -128,9 +122,6 @@
                                 </div>
                                 <div class="list-item none">
                                     <p><a onclick="loadPage(this, '${pageContext.request.contextPath}/member/checkList')">会员认证</a></p>
-                                </div>
-                                <div class="list-item none">
-                                    <p><a onclick="loadPage(this, '${pageContext.request.contextPath}/accountsetting/setting')">会员黑名单</a></p>
                                 </div>
                            </li>
                            

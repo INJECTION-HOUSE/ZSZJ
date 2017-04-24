@@ -91,19 +91,20 @@ html,body{height:100%;}
 .login_width{width:1080px;margin:0 auto;position:relative;}
 .login_right{float:left;width:500px;margin-top:40px;margin-left:50px;}
 .login_right img{width:100%;}
-.login_left{float:right;width:370px;height:370px;background:rgba(255,255,255,1);box-shadow:0 1px 2px 2px rgba(0,0,0,0.2);margin-top:40px;} 
+.login_left{float:right;width:370px;height:auto;background:rgba(255,255,255,1);box-shadow:0 1px 2px 2px rgba(0,0,0,0.2);margin-top:40px;padding:30px 0;} 
 .login_left .input{width:90%;margin:0 auto;}
-.login_left ul{padding-top:45px;}
-.login_left ul li{border-bottom:1px solid #efefef;height:64px;line-height:64px;}
-.login_left ul li .info{height:50px;width:84%;margin:0 auto;}
+.login_left ul li{height:64px;line-height:64px;}
+.login_left ul li .info{height:50px;line-height:50px;width:84%;margin:0 auto;}
 .login_left ul li .info .label{width:15%;float:left;font-size:15px;}
-.login_left ul li .info .input{width:85%;float:left;}
-.login_left ul li .info .input input{text-indent:12px;height:42px;border:none;width:100%;font-size:15px;}
+.login_left ul li .info .input{width:80%;float:left;margin-left: 5%;}
+.login_left ul li .info .input input{text-indent:12px;height:42px;border: 1px solid lightgray;width:100%;font-size:15px;}
+.login_left ul li .info .send_code{width: 30%; float: left; margin-left: 5%;background: #84C325;line-height: 42px;border: none;color:#ffffff;}
+.login_left ul li .info .send_code:hover{background:#A3E038;}
 .login_left .login_btn{width:84%;margin:20px auto 0 auto;}
-.login_left .login_btn input{width:100%;height:50px;font-size:15px;}
+.login_left .login_btn input{width:45%;height:50px;font-size:15px;float:left;}
 .login_left .login_btn input.login_btn_1{background:#84C325;color:#fff;border:none;}
 .login_left .login_btn input.login_btn_1:hover{background:#A3E038;}
-.login_left .login_btn input.login_btn_2{margin-top:14px;border:none;background:none;}
+.login_left .login_btn input.login_btn_2{margin-left:10%;border:none;}
 .login_left .login_btn input.login_btn_2:hover{background:#efefef;}
 
 /* 娉ㄥ唽椤甸潰鏍峰紡 */

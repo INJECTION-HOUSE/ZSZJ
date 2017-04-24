@@ -73,7 +73,7 @@
 			 <ul>
 			      <li class="moudel c_right color4"><div class="menus list4"><a href="${pageContext.request.contextPath}/personCenter/home">会员管理</a></div></li>
 			      <li class="moudel color1"><div class="menus list1"><a href="${pageContext.request.contextPath}/task/goTaskList">维修任务</a></div></li>
-				  <li class="moudel color3"><div class="menus list2" style="color:#3e3a39;">商城</div></li>
+				  <li class="moudel color3"><div class="menus list2" style="color:#3e3a39;"><a href="http://106.14.62.253/shop/web/autologin.php?useraccount=${useraccount}">商城</a></div></li>
 				  <li class="moudel color2"><div class="menus list3" style="color:#fff;">论坛</div></li>
 			 </ul>
 			 <div class="clear"></div>

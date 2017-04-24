@@ -66,7 +66,7 @@
 			timepicker:false
 		});
 		
-		$.ajax({
+		/* $.ajax({
 			url : "${pageContext.request.contextPath}/code/listItems",
 			cache : false,
 			data : {
@@ -80,7 +80,7 @@
 					}
 				}
 			}
-		});
+		}); */
 		
 		$("#search_btn").bind('click', function(){
 			searchData();
@@ -190,13 +190,42 @@
 				break;
 			};
 			ele += '<li><div class="task_wrap"><div class="task_fir"><p class="title"><em>￥' + data[i].prepayFee + '</em><a onclick="goBidTask(' + data[i].id + ')">' 
-						+ data[i].taskTitle + '</a></p></div><div class="task_sec">类别：' + data[i].category + '</div><div class="task_thir"><span class="tender">' 
+						+ data[i].taskTitle + '</a></p></div><div class="task_sec">类别：' + getCategory(data[i].category) + '</div><div class="task_thir"><span class="tender">' 
 						+ getStatus(data[i].status) + '</span><span class="num">已参与人数' + getJoiner(data[i].joiner) + '</span></div><div class="task_fou">' 
 						+ getDeadline(data[i].deadline) + '</div><div class="clear"></div></div><div class="task_btn">'
 						+ getBidBtn(data[i].joiner, data[i].id, data[i].status) + '</div><div class="clear"></div></li>';
 		}
 		$(".task_ul").append(ele);
 	}
+	
+	function getCategory(type){
+        var res = "";
+        type = parseInt(type);
+        switch(type){
+            case 1:
+                res = "常见故障";
+                break;
+            case 2:
+                res = "机械故障";
+                break;
+            case 3:
+                res = "电子故障";
+                break;
+            case 4:
+                res = "液压故障";
+                break;
+            case 5:
+                res = "电气故障";
+                break;
+            case 6:
+                res = "辅助故障";
+                break;
+            default:
+                res = "常见故障";
+                break;
+        }
+        return res;
+    };
 	
 	function getJoiner(joiner){
 		if(joiner === null){
@@ -350,7 +379,12 @@
 					<div class="col-md-6"> 
 						<label>问题分类</label> 
 						<select id="issue_type">
-							<option value="">全部</option>
+							<option value="1">常见故障</option>
+							<option value="2">机械故障</option>
+							<option value="3">电子故障</option>
+							<option value="4">液压故障</option>
+							<option value="5">电气故障</option>
+							<option value="6">辅助故障</option>
 						</select>
 					</div>
 					<div class="col-md-6"> 

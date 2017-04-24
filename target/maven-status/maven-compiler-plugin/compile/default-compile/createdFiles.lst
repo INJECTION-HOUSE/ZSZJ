@@ -69,6 +69,7 @@ com\santi\core\dao\TaskDao.class
 com\santi\core\param\UpdateTaskBidParam.class
 com\santi\core\global\common\LoginInfo.class
 com\santi\core\entity\CodeItemEntity.class
+com\santi\core\entity\WeiXinUserInfoEntity.class
 com\santi\api\controller\MallUserController.class
 com\santi\core\service\impl\MyMessageServiceImpl.class
 com\santi\core\param\SearchMemberParam.class
@@ -78,6 +79,7 @@ com\santi\core\common\util\FileUtils.class
 com\santi\core\datamodel\dto\WeiXinConstants.class
 com\santi\core\common\util\SequenceNumberUtil.class
 com\santi\core\service\CodeService.class
+com\santi\core\entity\TaskAppListEntity.class
 com\santi\core\param\SearchBaseParam.class
 com\santi\core\service\impl\AdminUserServiceImpl.class
 com\santi\core\service\impl\MessageServiceImpl.class
@@ -116,7 +118,9 @@ com\santi\web\controller\AdminController.class
 com\santi\web\controller\MessageController.class
 com\santi\core\service\impl\CodeServiceImpl.class
 com\santi\core\common\util\WeiXinPaymentUtil.class
+com\santi\core\param\SearchAppTaskParam.class
 com\santi\core\common\entity\RespJsonFactory.class
 com\santi\core\dao\WeiXinUserInfoDao.class
+com\santi\core\param\ResetPasswordParam.class
 com\santi\core\common\util\CodeTypeConstants.class
 com\santi\core\entity\TaskMemberEntity.class
