@@ -67,6 +67,7 @@
 						}
 						if(data.role == 'member') {
 							$("#applyCertificationBtn").val("个人会员");
+							$("#pubTask").show();
 						}
 						if(data.role == 'enterprise') {
 							$("#applyCertificationBtn").val("企业会员");
@@ -157,6 +158,7 @@
 							<a onclick="loadPage(this, '${pageContext.request.contextPath}/personCenter/bidlist')">投标记录</a>
 							<a id="repairtaskId" onclick="loadPage(this, '${pageContext.request.contextPath}/personCenter/tasklist')">维修任务</a>
 							<a onclick="loadPage(this, '${pageContext.request.contextPath}/personCenter/myskillset')">擅长技能</a>
+							<a id="pubTask" style="display: none" onclick="javascript:alert('只有企业会员才可以发布任务，请认证为企业会员')">发布任务</a>
 					   </div>
 				 </div>
 			 

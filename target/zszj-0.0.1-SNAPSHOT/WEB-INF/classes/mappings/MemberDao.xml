@@ -274,12 +274,12 @@
 
 	<insert id="createMember" parameterType="com.santi.core.entity.MemberEntity">
 		insert into member_tbl
-		(role, cellphone, password, nickname, is_verify, is_lock, total_cash, ava_cash, avatar_name,member_level,
+		(role, cellphone, password, nickname, is_verify, is_lock, total_cash, ava_cash, avatar_name,member_level, weixin_id,
 			created_time, updated_time, created_by, updated_by)
 		values
 		(
 		#{role}, #{cellphone}, #{password}, #{nickName}, #{verified}, #{lock},
-		#{totalCash}, #{avaCash}, #{avatarName}, #{level},
+		#{totalCash}, #{avaCash}, #{avatarName}, #{level},#{weixinId},
 		#{createTime},
 		#{updateTime},
 		#{createBy},
