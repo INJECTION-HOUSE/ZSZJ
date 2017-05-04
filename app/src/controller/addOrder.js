@@ -124,13 +124,13 @@ define(['angular'], function(angular){
                     },
                     success: function(d){
                         console.log(d);
-                        if(d.success){
+                        if(d.success && d.success == 1){
                             WeixinJSBridge.invoke(
                                 'getBrandWCPayRequest', {
                                     "appId" : d.appid,
-                                    "timeStamp": Math.round(new Date().getTime() / 1000),
+                                    "timeStamp": d.timeStamp,
                                     "nonceStr" :  d.nonce_str,
-                                    "package" :  "prepay_id=" + d.prepay_id,
+                                    "package" : d.package,
                                     "signType" : "MD5",
                                     "paySign" : d.sign
                                 },

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +40,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.santi.core.common.util.UUIDUtil;
+import com.santi.core.common.util.WeiXinPaymentUtil;
 import com.santi.core.common.util.XMLUtil;
 import com.santi.core.datamodel.dto.UnifiedorderDto;
 import com.santi.core.datamodel.dto.WeiXinConstants;
@@ -241,7 +243,7 @@ public class WeixinPayController {
 		// generate signature
 		dto.setOpenId(openId);
 		dto.setSign(dto.makeAppSign());
-		logger.info("sign : " + dto.makeSign());
+		logger.info("sign : " + dto.makeAppSign());
 		logger.info("xml content : " + dto.generateAppXMLContent());
 		try {
 			HttpClient httpClient = HttpClientBuilder.create().build(); 
@@ -258,13 +260,18 @@ public class WeixinPayController {
 			if(return_code.equals("SUCCESS")){
 				String appid = resultMap.get("appid");
 				String nonce_str = resultMap.get("nonce_str");
-				String sign = resultMap.get("sign");
+//				String sign = resultMap.get("sign");
 				String prepay_id = resultMap.get("prepay_id");
+				String packageStr = "prepay_id=" + prepay_id;
+				String timeStamp = String.valueOf(Math.round(new Date().getTime() / 1000));
+				String signStr = "appId=" + appid + "&nonceStr=" + nonce_str + "&package=" + packageStr + "&signType=MD5&timeStamp=" + timeStamp + "&key=" + WeiXinConstants.MD5_API_KEY;
+				String finalSign = WeiXinPaymentUtil.MD5Encode(signStr, "utf-8").toUpperCase();
 				result.put("success", "1");
 				result.put("appid", appid);
+				result.put("timeStamp", timeStamp);
 				result.put("nonce_str", nonce_str);
-				result.put("sign", sign);
-				result.put("prepay_id", prepay_id);
+				result.put("sign", finalSign);
+				result.put("package", packageStr);
 			}else{
 				result.put("success", "0");
 				result.put("message", resultMap.get("return_msg"));
