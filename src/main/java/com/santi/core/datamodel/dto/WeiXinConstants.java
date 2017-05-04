@@ -26,9 +26,9 @@ public interface WeiXinConstants {
 	// 同一下单URL
 	public static final String UNIFIEDORDER_URL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 	// 回调URL
-	public static final String CALLBACK_URL = "http://139.196.152.50:8080/zszj/payment/notifycallback";
+	public static final String CALLBACK_URL = "http://www.zhusuhome.com/zszj/payment/notifycallback";
 	//微信app支付回调URL
-	public static final String APP_CALLBACK_URL = "http://139.196.152.50:8080/zszj/payment/appnotifycallback";
+	public static final String APP_CALLBACK_URL = "http://www.zhusuhome.com/zszj/payment/appnotifycallback";
 	// public static final String CALLBACK_URL = "http://127.0.0.1:8080/zszj/payment/notifycallback";
 	
 	// 设备信息
