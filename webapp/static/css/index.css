@@ -1,194 +1,231 @@
-body{
-margin: 0;
-padding: 0;
-font-family: "微软雅黑";
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.header{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 45px;
-	background:#148CCA;
-}
-.header_title{
-	font-size: 20px;
-	color: white;
-	
-	margin: 5px 0 0 10px;
-	padding-top: 3px;
-	float:left;
-}
-.header_title img{
-	width:30px;
-	height:30px;
-	vertical-align: middle;
-	margin-right: 10px;
-}
-.header button{
-	cursor: pointer;
-}
-.login{
-	margin:14px 20px 0 0;
-	float: right;
-	
-}
-.login button{
-	background: none;
-	border: 0;
-	color: white;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: #148CCA;
 }
 
-.left{
-	position: fixed;
-	left: 0;
-	top: 45px;	
-	z-index: 10;
+.header_title {
+  font-size: 20px;
+  color: white;
+
+  margin: 5px 0 0 10px;
+  padding-top: 3px;
+  float: left;
 }
-.nav1{	 
-	
-	height:625px;
-	  background: #eee;
+
+.header_title img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
-.nav_title{
-	margin-left:10px;
-	padding-top:8px;  
-	 cursor: pointer;
-	/* color: white;
+
+.header button {
+  cursor: pointer;
+}
+
+.login {
+  margin: 14px 20px 0 0;
+  float: right;
+
+}
+
+.login button {
+  background: none;
+  border: 0;
+  color: white;
+}
+
+.left {
+  position: fixed;
+  left: 0;
+  top: 45px;
+  z-index: 10;
+}
+
+.nav1 {
+
+  height: 625px;
+  background: #eee;
+}
+
+.nav_title {
+  margin-left: 10px;
+  padding-top: 8px;
+  cursor: pointer;
+  /* color: white;
 	 font-weight: bold;*/
-	  font-size:16px; 
-	  position:relative;
-		
+  font-size: 16px;
+  position: relative;
+
 }
-.icon2{
-	height: 20px; 
-	width: 20px; 
-	margin-left: 10px;
+
+.icon2 {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
 }
-.icon{
-	
-	height: 20px; 
-	width: 20px; 
-	margin-top: 3px;
+
+.icon {
+
+  height: 20px;
+  width: 20px;
+  margin-top: 3px;
 }
+
 .xiangmu_icon {
-	background:url(../images/number_black.png) left no-repeat;
+  background: url(../images/number_black.png) left no-repeat;
 }
+
 .neirong_icon {
-	background:url(../images/apply.png) left no-repeat;
+  background: url(../images/apply.png) left no-repeat;
 }
+
 .zhuanti_icon {
-	background:url(../images/manage.png) left no-repeat;
+  background: url(../images/manage.png) left no-repeat;
 }
+
 .kehu_icon {
-	background:url(../images/user.png) left no-repeat;
+  background: url(../images/user.png) left no-repeat;
 }
+
 .xitong_icon {
-	background:url(../images/apply.png) left no-repeat;
+  background: url(../images/apply.png) left no-repeat;
 }
-.operate span{display: inline-block;float: left;}
-.operate{overflow: hidden;}
-.operate ul{
-	
-	padding:10px 0 0 0;
-	list-style-type: none;
+
+.operate span {
+  display: inline-block;
+  float: left;
 }
+
+.operate {
+  overflow: hidden;
+}
+
+.operate ul {
+
+  padding: 10px 0 0 0;
+  list-style-type: none;
+}
+
 .operate ul li .list {
-	margin-left:30px; 
- cursor:pointer;
-  background:url(../images/down_black.png) no-repeat center right 5px;
-   text-decoration:none;
-    font-size:18px;
-    display:block; 
-     line-height:25px; 
-     font-weight:normal;
-     padding-top: 10px;
-     padding-bottom: 10px;
+  margin-left: 30px;
+  cursor: pointer;
+  background: url(../images/down_black.png) no-repeat center right 5px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  line-height: 25px;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
 .operate ul li:hover {
-	background:url(../images/down_black.png) no-repeat center right 5px,#DCDCDC;
+  background: url(../images/down_black.png) no-repeat center right 5px, #DCDCDC;
 }
+
 .operate ul li .list:hover {
-	background:url(../images/down_black.png) no-repeat center right 5px,#DCDCDC;
+  background: url(../images/down_black.png) no-repeat center right 5px, #DCDCDC;
 }
-.operate ul li.selected{
-background:#DCDCDC;
+
+.operate ul li.selected {
+  background: #DCDCDC;
 }
+
 .operate ul li.selected .list {
- background:url(../images/up_black.png) no-repeat center right 5px,#DCDCDC; 
-}
-.operate li .list-item { 
-	position:relative; 
-
-}
-.operate ul li ul{
-	height: 24px;
-}
-.operate ul li ul li{
-	color: white;
-	text-align: center;
-	float: left;
-	height: 24px;
-}
-.operate p{
-	cursor: pointer;
-	border-bottom:1px dotted #ccc;  
-	height: 35px;
-	line-height: 35px;
-	background: white;
-	margin:0; 
-}
-.operate p a{
-	font-size: 14px;
-	display: inline-block;
-	padding-left: 60px;
-	color: black;
-	text-decoration: none;
-}
-.operate .list_a a{
-   font-size: 15px;
-font-weight: bolder;
-}
-.operate p a:hover{
-font-size: 15px;
-font-weight: bolder;
+  background: url(../images/up_black.png) no-repeat center right 5px, #DCDCDC;
 }
 
-.none{
-	display: none;
+.operate li .list-item {
+  position: relative;
+
+}
+
+.operate ul li ul {
+  height: 24px;
+}
+
+.operate ul li ul li {
+  color: white;
+  text-align: center;
+  float: left;
+  height: 24px;
+}
+
+.operate p {
+  cursor: pointer;
+  border-bottom: 1px dotted #ccc;
+  height: 35px;
+  line-height: 35px;
+  background: white;
+  margin: 0;
+}
+
+.operate p a {
+  font-size: 14px;
+  display: inline-block;
+  padding-left: 60px;
+  color: black;
+  text-decoration: none;
+}
+
+.operate .list_a a {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.operate p a:hover {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.none {
+  display: none;
 }
 
 
-.shensuo_big{
-	background:#738193;
-}
-.nav2{	 
-	
-	height: 625px;
-	   background: #eee;
-}
-.nav2 span{
-display: inline-block;
-width: 20px;
-height: 20px;
-margin: 20px 0 0 10px;
-}
-.shensuo_small{
-
-	background:#738193;
+.shensuo_big {
+  background: #738193;
 }
 
-.right{
-	position: fixed;
-width: 84.2%;
-top: 45px;
-left:216px;
+.nav2 {
+
+  height: 625px;
+  background: #eee;
 }
-iframe{
-	width:100%;
-	background:none;
-	border: none;
-	height: 625px;
-	/*padding-left:15px; */
+
+.nav2 span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 20px 0 0 10px;
+}
+
+.shensuo_small {
+
+  background: #738193;
+}
+
+.right {
+  position: fixed;
+  width: 84.2%;
+  top: 45px;
+  left: 216px;
+}
+
+iframe {
+  width: 100%;
+  background: none;
+  border: none;
+  height: 625px;
+  /*padding-left:15px; */
 }
